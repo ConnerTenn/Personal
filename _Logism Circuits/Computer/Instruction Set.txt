@@ -1,0 +1,71 @@
+
+## Word Bank ##
+Dest:	Destintaion
+Src:	Source
+Addr:	Address
+Dev:	Memory/Data device
+DEV:	Device
+Ctrl:	Control
+Cmd:	Command
+Const:	Constant
+
+
+## Memory/Data Devices ##
+0000: Regester 
+0001: RAM
+0010: Data Bus
+//0011: Ctrl Bus
+0100: Constant (From ROM)
+
+## Input Memory/Data Devices ##
+0000: Regester 
+0001: Data Bus
+0010: Const (From ROM)
+
+## Output Memory/Data Devices ##
+0000: Regester
+0001: RAM 
+0010: Data Bus
+0011: Ctrl Bus
+
+
+## Instruction Structure ##
+3 Lines:
+Line 1:Command (16)
+Line 2:Data (16)
+Line 3:Data (16)
+
+Line 2:Destination (16)
+Line 3:Source (16)
+
+
+## Command Structure ##
+Operation (4), Destination Memory Type (1), Source Memory Type (2)
+
+
+## Instructions ##
+NoOp	| | | |
+Move	|DestDev,SrcDev|DestAddr|SrcAddr|	(Moves data from Src to Dest)
+AND	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms AND on Src and Dest, Result stored in Dest)
+OR	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms OR on Src and Dest, Result stored in Dest)
+XOR	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms XOR on Src and Dest, Result stored in Dest)
+INV	|DestDev,SrcDev|DestAddr|SrcAddr|	(Inverts Src, Result stored in Dest)
+LShift	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms LShift on Src and Dest, Result stored in Dest)
+RShift	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms RShift on Src and Dest, Result stored in Dest)
+Plus	|DestDev,SrcDev|DestAddr|SrcAddr|	(Preforms Plus on Src and Dest, Result stored in Dest)
+Jump	|Reletive/Absoloute,Dev|DevAddr| |
+Compare	|Equal/Greater/LessThan,Dev1,Dev2|Dev1Addr|Dev2Addr|
+
+Ctrl	|SrcDev|DEVAddr,SrcAddr| |		(Connects to Device at Address and provides command from source dev)
+Read	|DestDev|DevAddr| |			(Reads from device and stores in destination)
+CmdRead	|DestDev|DevAddr| |			(Reads from device and stores in destination)
+
+
+## Example Instruction ##
+Move to RAM from Const: to 0010 from 000A
+0001 [0b0001 0b0010] 0010 000a
+0001 0006 0010 000a
+
+0001	0000	0000	0000
+0001	0000	0000	0110
+1	0	0	6

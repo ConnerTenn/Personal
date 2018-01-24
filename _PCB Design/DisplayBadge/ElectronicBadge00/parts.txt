@@ -1,0 +1,88 @@
+Partlist
+
+Exported from MainBoard.sch at 2017-10-10 11:33 PM
+
+EAGLE Version 8.3.2 Copyright (c) 1988-2017 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value          Device         Package           Library                                Sheet
+
+AP2114H  AP2114H        AP2114H        SOT233            ElectronicBadge                        1
+~ BATT+    3.3V           2,54/1,1       2,54/1,1          wirepad                                1
+~ BATT-    0V             2,54/1,1       2,54/1,1          wirepad                                1
+# C1       1uF            CC0402         C0402             eagle-ltspice                          1
+# C2       10uF           CC0402         C0402             eagle-ltspice                          1
+# C3       0.1uF          CC0402         C0402             eagle-ltspice                          1
+# C4       0.1uF          CC0402         C0402             eagle-ltspice                          1
+# C5       1uF            CC0402         C0402             eagle-ltspice                          1
+# C6       1uF            CC0402         C0402             eagle-ltspice                          1
+# C7       1uF            CC0402         C0402             eagle-ltspice                          1
+# C8       1uF            CC0402         C0402             eagle-ltspice                          1
+# C14      10uF           CC0402         C0402             eagle-ltspice                          1
+# C15      10uF           CC0402         C0402             eagle-ltspice                          1
+# C16      1uF            CC0402         C0402             eagle-ltspice                          1
+# C17      2.2nF          CC0402         C0402             eagle-ltspice                          1
+# C18      10nF           CC0402         C0402             eagle-ltspice                          1
+# C19      10uF           CC0402         C0402             eagle-ltspice                          1
+# C20      4.7uF          CC0402         C0402             eagle-ltspice                          1
+# D1       HSMS-2850      HSMS-2850      SOT23             avago                                  1
+# D2       HSMS-2850      HSMS-2850      SOT23             avago                                  1
+# D3       HSMS-2850      HSMS-2850      SOT23             avago                                  1
+# D4       HSMS-2850      HSMS-2850      SOT23             avago                                  1
+L1       4.7µH          L              L1812             eagle-ltspice                          1
+# R1       1k             R-EU_M1406     M1406             resistor                               1
+# R2       1k             R-EU_M1406     M1406             resistor                               1
+# R3       1k             R-EU_M1406     M1406             resistor                               1
+# R4       1k             R-EU_M1406     M1406             resistor                               1
+# R5       1k             R-EU_M1406     M1406             resistor                               1
+# R6       10k            R-EU_M1406     M1406             resistor                               1
+# R7       220            R-EU_M1406     M1406             resistor                               1
+# R8       220            R-EU_M1406     M1406             resistor                               1
+R9       17k            R-EU_M1406     M1406             resistor                               1
+# R10      10k            R-EU_M1406     M1406             resistor                               1
+# R11      10k            R-EU_M1406     M1406             resistor                               1
+# R12      6.8k           R-EU_M1406     M1406             resistor                               1
+# R13      10k            R-EU_M1406     M1406             resistor                               1
+# R14      150k           R-EU_M1406     M1406             resistor                               1
+# R15      10k            R-EU_M1406     M1406             resistor                               1
+# R16      10k            R-EU_M1406     M1406             resistor                               1
+R17      94k            R-EU_M1406     M1406             resistor                               1
+# R18      10k            R-EU_M1406     M1406             resistor                               1
+R20      80k            R-EU_M1406     M1406             resistor                               1
+R22      83k            R-EU_M1406     M1406             resistor                               1
+# R25      10k            R-EU_M1406     M1406             resistor                               1
+# R26      100            R-EU_M1406     M1406             resistor                               1
+# R27      100            R-EU_M1406     M1406             resistor                               1
+# R28      100            R-EU_M1406     M1406             resistor                               1
+R29      15k            R-EU_M1406     M1406             resistor                               1
+R30      126k           R-EU_M1406     M1406             resistor                               1
+# R31      10k            R-EU_M1406     M1406             resistor                               1
+SV1                     FE08-1         FE08              con-lsta                               1
+SV2                     FE05-1         FE05-1            con-lsta                               1
+~ TP1      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP2      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP3      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP4      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP5      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP6      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP7      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP8      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP9      TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ TP10     TPSPAD1-17Y    TPSPAD1-17Y    P1-17Y            testpad                                1
+~ U$1      SHORT          SHORT          SHORT             ElectronicBadge                        1
+# U$2      MICROSD        MICROSD        MICROSD           ElectronicBadge                        1
+# U$4      TRIMMER        TRIMMER        TRIMMMER          ElectronicBadge                        1
+# U$5      NR301E         SOIC-8         SOIC-8            smd-footprints                         1
+# U$6      NR301E         SOIC-8         SOIC-8            smd-footprints                         1
+~ U$8      SHORT          SHORT          SHORT             ElectronicBadge                        1
+~ U$9      SHORT          SHORT          SHORT             ElectronicBadge                        1
+# U$10     SOIC-8         SOIC-8         SOIC-8            smd-footprints                         1
+#  U$11     NR301E         SOIC-8         SOIC-8            smd-footprints                         1
+#  U$12     QFN-10         QFN-10         QFN-10            smd-footprints                         1
+#  U1       ATXMEGA64D3-AU ATXMEGA64D3-AU TQFP-64A-64       atmel-xmega                            1
+U2       MMBT2907AT-7-F MMBT2907AT-7-F SOT65P210X110-3N  Diodes_Inc_By_element14_Batch_1        1
+U3       MMBT2907AT-7-F MMBT2907AT-7-F SOT65P210X110-3N  Diodes_Inc_By_element14_Batch_1        1
+U4       MMBT3904-7-F   MMBT3904-7-F   SOT103P240X110-3N Diodes_Inc_By_element14_Batch_1        1
+U5       TPS72301DBVT   TPS72301DBVT   SOT95P280X145-5N  Texas Instruments_By_element14_Batch_1 1
+X1       FH12-50S-0.5SH FH12-50S-0.5SH FH12-50S-0.5SH    con-hirose                             1
