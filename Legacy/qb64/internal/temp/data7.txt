@@ -1,0 +1,78 @@
+int16 *_SUB_DRAWSCREEN_INTEGER_FILECOUNT=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_FILECOUNT==NULL){
+_SUB_DRAWSCREEN_INTEGER_FILECOUNT=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_FILECOUNT=0;
+}
+int16 *_SUB_DRAWSCREEN_INTEGER_Y=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_Y==NULL){
+_SUB_DRAWSCREEN_INTEGER_Y=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_Y=0;
+}
+int32 fornext_value350;
+int32 fornext_finalvalue350;
+int32 fornext_step350;
+uint8 fornext_step_negative350;
+qbs *_SUB_DRAWSCREEN_STRING_FILENAME=NULL;
+if (!_SUB_DRAWSCREEN_STRING_FILENAME)_SUB_DRAWSCREEN_STRING_FILENAME=qbs_new(0,0);
+byte_element_struct *byte_element_351=NULL;
+if (!byte_element_351){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_351=(byte_element_struct*)(mem_static_pointer-12); else byte_element_351=(byte_element_struct*)mem_static_malloc(12);
+}
+int16 *_SUB_DRAWSCREEN_INTEGER_N=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_N==NULL){
+_SUB_DRAWSCREEN_INTEGER_N=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_N=0;
+}
+int32 fornext_value353;
+int32 fornext_finalvalue353;
+int32 fornext_step353;
+uint8 fornext_step_negative353;
+int16 *_SUB_DRAWSCREEN_INTEGER_TOWER=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_TOWER==NULL){
+_SUB_DRAWSCREEN_INTEGER_TOWER=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_TOWER=0;
+}
+int16 *_SUB_DRAWSCREEN_INTEGER_X=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_X==NULL){
+_SUB_DRAWSCREEN_INTEGER_X=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_X=0;
+}
+int32 fornext_value355;
+int32 fornext_finalvalue355;
+int32 fornext_step355;
+uint8 fornext_step_negative355;
+int16 *_SUB_DRAWSCREEN_INTEGER_HEIGHT=NULL;
+if(_SUB_DRAWSCREEN_INTEGER_HEIGHT==NULL){
+_SUB_DRAWSCREEN_INTEGER_HEIGHT=(int16*)mem_static_malloc(2);
+*_SUB_DRAWSCREEN_INTEGER_HEIGHT=0;
+}
+byte_element_struct *byte_element_356=NULL;
+if (!byte_element_356){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_356=(byte_element_struct*)(mem_static_pointer-12); else byte_element_356=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_357=NULL;
+if (!byte_element_357){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_357=(byte_element_struct*)(mem_static_pointer-12); else byte_element_357=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_358=NULL;
+if (!byte_element_358){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_358=(byte_element_struct*)(mem_static_pointer-12); else byte_element_358=(byte_element_struct*)mem_static_malloc(12);
+}
+int32 fornext_value360;
+int32 fornext_finalvalue360;
+int32 fornext_step360;
+uint8 fornext_step_negative360;
+byte_element_struct *byte_element_361=NULL;
+if (!byte_element_361){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_361=(byte_element_struct*)(mem_static_pointer-12); else byte_element_361=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_362=NULL;
+if (!byte_element_362){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_362=(byte_element_struct*)(mem_static_pointer-12); else byte_element_362=(byte_element_struct*)mem_static_malloc(12);
+}
+int16 pass363;
+int16 pass364;
+int16 pass365;
+int16 pass366;
+int16 pass367;
+int16 pass368;

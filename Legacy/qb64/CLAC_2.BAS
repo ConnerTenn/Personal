@@ -1,0 +1,10 @@
+1
+CLS
+PRINT ""
+PRINT " ? (ADD/SUBTRACT/MULTIPLY/DIVIDE) x = ?"
+INPUT "Enter 1st Number"; a
+CLS
+PRINT ""
+PRINT ; a; " (ADD/SUBTRACT/MULTIPLY/DIVIDE) x = ?"
+input
+

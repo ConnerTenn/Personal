@@ -1,0 +1,40 @@
+byte_element_struct *byte_element_231=NULL;
+if (!byte_element_231){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_231=(byte_element_struct*)(mem_static_pointer-12); else byte_element_231=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_232=NULL;
+if (!byte_element_232){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_232=(byte_element_struct*)(mem_static_pointer-12); else byte_element_232=(byte_element_struct*)mem_static_malloc(12);
+}
+int16 pass233;
+int16 pass234;
+int16 *_SUB_STARTUP_INTEGER_BUTTONX=NULL;
+if(_SUB_STARTUP_INTEGER_BUTTONX==NULL){
+_SUB_STARTUP_INTEGER_BUTTONX=(int16*)mem_static_malloc(2);
+*_SUB_STARTUP_INTEGER_BUTTONX=0;
+}
+int16 *_SUB_STARTUP_INTEGER_BUTTONY=NULL;
+if(_SUB_STARTUP_INTEGER_BUTTONY==NULL){
+_SUB_STARTUP_INTEGER_BUTTONY=(int16*)mem_static_malloc(2);
+*_SUB_STARTUP_INTEGER_BUTTONY=0;
+}
+qbs *_SUB_STARTUP_STRING_FILENAME=NULL;
+if (!_SUB_STARTUP_STRING_FILENAME)_SUB_STARTUP_STRING_FILENAME=qbs_new(0,0);
+byte_element_struct *byte_element_238=NULL;
+if (!byte_element_238){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_238=(byte_element_struct*)(mem_static_pointer-12); else byte_element_238=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_239=NULL;
+if (!byte_element_239){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_239=(byte_element_struct*)(mem_static_pointer-12); else byte_element_239=(byte_element_struct*)mem_static_malloc(12);
+}
+byte_element_struct *byte_element_240=NULL;
+if (!byte_element_240){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_240=(byte_element_struct*)(mem_static_pointer-12); else byte_element_240=(byte_element_struct*)mem_static_malloc(12);
+}
+float pass241;
+byte_element_struct *byte_element_242=NULL;
+if (!byte_element_242){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_242=(byte_element_struct*)(mem_static_pointer-12); else byte_element_242=(byte_element_struct*)mem_static_malloc(12);
+}
+float pass243;

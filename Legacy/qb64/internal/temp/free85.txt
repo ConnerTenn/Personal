@@ -1,0 +1,4 @@
+if(oldstr1501){
+if(oldstr1501->fixed)qbs_set(oldstr1501,_SUB_OPENLVLFILE_STRING_FILE);
+qbs_free(_SUB_OPENLVLFILE_STRING_FILE);
+}

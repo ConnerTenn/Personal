@@ -1,0 +1,16 @@
+byte_element_struct *byte_element_1136=NULL;
+if (!byte_element_1136){
+if ((mem_static_pointer+=12)<mem_static_limit) byte_element_1136=(byte_element_struct*)(mem_static_pointer-12); else byte_element_1136=(byte_element_struct*)mem_static_malloc(12);
+}
+int16 pass1137;
+int16 pass1138;
+int16 pass1139;
+int16 pass1140;
+int16 pass1142;
+int16 pass1144;
+int16 pass1145;
+int16 pass1146;
+int16 pass1147;
+int16 pass1148;
+int16 pass1149;
+int16 pass1150;

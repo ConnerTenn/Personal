@@ -1,0 +1,4 @@
+if(oldstr1156){
+if(oldstr1156->fixed)qbs_set(oldstr1156,_SUB_DRAWBOSS_STRING_BOSSFILE);
+qbs_free(_SUB_DRAWBOSS_STRING_BOSSFILE);
+}
