@@ -1,2 +1,0 @@
-qbs_free(__STRING_KEY);
-qbs_free(__STRING_KEK);

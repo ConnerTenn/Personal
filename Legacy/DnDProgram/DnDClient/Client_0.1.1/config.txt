@@ -1,4 +1,0 @@
-WindowSize Normal
-Name Charlie
-IP 192.168.0.118
-Port 27015

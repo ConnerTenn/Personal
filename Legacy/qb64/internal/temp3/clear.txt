@@ -1,5 +1,0 @@
-__STRING_KEY->len=0;
-*__SINGLE_HUNGER=0;
-*__SINGLE_A=0;
-__STRING_MOOD->len=0;
-*__SINGLE_MOUTH=0;

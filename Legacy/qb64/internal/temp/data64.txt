@@ -1,6 +1,0 @@
-int16 pass1413;
-int16 pass1414;
-int16 pass1415;
-int16 pass1416;
-int16 pass1417;
-int16 pass1418;

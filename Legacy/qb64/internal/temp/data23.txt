@@ -1,3 +1,0 @@
-int16 pass218;
-int16 pass219;
-int16 pass220;

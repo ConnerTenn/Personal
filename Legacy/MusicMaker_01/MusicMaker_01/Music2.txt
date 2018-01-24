@@ -1,4 +1,0 @@
-square 			triangle		
-::
-C#	0000		F#	0000
-C	0000		D	0000

@@ -1,2 +1,0 @@
-WindowSize Normal
-Name Charlie
