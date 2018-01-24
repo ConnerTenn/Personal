@@ -1,0 +1,7 @@
+Box
+	Big
+	(Box & House)/Blue
+	Box/Blue, House/Blue		//<-- won't work
+	(Box & !House)Red
+	Box/Red 
+House
