@@ -15,7 +15,7 @@ typedef uint64_t u64;
 
 namespace INTC
 {
-	namespace OPE
+	/*namespace OPE
 	{
 		extern char Not[2];
 		//char And[2] = "&";
@@ -32,7 +32,7 @@ namespace INTC
 		//std::string OpenQuote = "\"";
 		//std::string CloseQuote = "\"";
 		//std::string Delimeter = ",";
-	}
+	}*/
 	/*
 	namespace LOGIC
 	{
@@ -111,15 +111,27 @@ namespace INTC
 	std::vector<INTC::Node *> FindNodes(std::string search);
 
 	
-
-	struct Equation
+	namespace EQN
 	{
-		std::string Name;
-		bool Operator;
-		bool Value;
-	};
+		struct EquationNode
+		{
+			std::string Name;
+			//bool Operator;
+			//bool Value;
+		};
 
-	bool Evaluate();
+		struct Operator : EquationNode
+		{
+
+		};
+
+		struct Value : EquationNode
+		{
+
+		};
+	}
+
+	//bool Evaluate();
 }
 
 

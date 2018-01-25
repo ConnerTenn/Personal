@@ -2,7 +2,7 @@
 #include "Interconnect.h"
 
 
-char INTC::OPE::Not[2] = "!";
+//char INTC::OPE::Not[2] = "!";
 /*char And[2] = "&";
 char Or[2] = "|";
 char Xor[2] = "^";
@@ -20,8 +20,8 @@ std::string Delimeter = ",";*/
 
 bool INTC::IsOperator(char character, int index)
 {
-	if (character == OPE::Not[index]) { return true; }
-	/*else if (character == OPE::And[index]) { return true; }
+	/*if (character == OPE::Not[index]) { return true; }
+	else if (character == OPE::And[index]) { return true; }
 	else if (character == OPE::Or[index]) { return true; }
 	else if (character == OPE::Xor[index]) { return true; }
 	else if (character == OPE::EscapeChar[index]) { return true; }
