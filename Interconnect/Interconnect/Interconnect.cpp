@@ -27,7 +27,9 @@ bool INTC::IsOperator(char character, int index)
 	else if (character == OPE::EscapeChar[index]) { return true; }
 	else if (character == OPE::OpenBracket[index]) { return true; }
 	else if (character == OPE::CloseBracket[index]) { return true; }*/
-	return false;
+	//return false;
+
+
 }
 
 std::vector<INTC::Node> INTC::Network = {};

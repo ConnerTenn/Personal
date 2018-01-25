@@ -95,7 +95,6 @@ namespace INTC
 	};
 	*/
 
-	bool IsOperator(char character, int index);
 
 
 	struct Node
@@ -111,22 +110,57 @@ namespace INTC
 	std::vector<INTC::Node *> FindNodes(std::string search);
 
 	
+	namespace OPE
+	{
+		const char Not[3] = { '!', 0, 0 };
+		//char And[2] = "&";
+		//char Or[2] = "|";
+		//char Xor[2] = "^";
+		//std::string Dir = "/";
+		//std::string ForwardDir = ">";
+		//std::string Reverse = "<";
+		//char EscapeChar[2] = "\\";
+		//char OpenBracket[2] = "(";
+		//char CloseBracket[2] = ")";
+		//std::string OpenList = "{"; Not necessary 
+		//std::string CloseList = "}";
+		//std::string OpenQuote = "\"";
+		//std::string CloseQuote = "\"";
+		//std::string Delimeter = ",";
+	}
+
+	bool IsOperator(char character, int index);
+
 	namespace EQN
 	{
+
+		enum EquationNodeType
+		{
+			Operator,
+			Value,
+		};
+
 		struct EquationNode
 		{
 			std::string Name;
+			EquationNodeType Tyoe;
 			//bool Operator;
 			//bool Value;
 		};
 
-		struct Operator : EquationNode
+		/*struct Operator : EquationNode
 		{
 
 		};
 
 		struct Value : EquationNode
 		{
+
+		};*/
+
+		struct Equation
+		{
+			std::vector<EquationNode> EquationNodes;
 
 		};
 	}
