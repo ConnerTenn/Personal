@@ -23,7 +23,7 @@
     <ProjectGuid>{EA52C565-9366-48B7-9E43-97D1794B992A}</ProjectGuid>
     <RootNamespace>Interconnect</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
-    <ProjectName>Interconnect_0.0</ProjectName>
+    <ProjectName>Interconnect</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
