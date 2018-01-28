@@ -86,29 +86,115 @@ std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 }
 
 
-bool  INTC::EQN::EquationNode::Evaluate()
+bool INTC::EQN::EquationNode::Evaluate()
 {
 	return false;
 }
+
+bool INTC::EQN::EquationNode::AddNode(EquationNode *node)
+{
+	return false;
+}
+
+bool INTC::EQN::EquationNode::FullNodes()
+{
+	return true;
+}
+
+
+bool INTC::EQN::ROOT::Evaluate()
+{
+	return Node1->Evaluate();
+}
+
+bool INTC::EQN::ROOT::AddNode(EquationNode *node)
+{
+	if (!Node1) { Node1 = node; return true; }
+	return false;
+}
+
+bool INTC::EQN::ROOT::FullNodes()
+{
+	return !!Node1;
+}
+
 
 bool INTC::EQN::AND::Evaluate()
 {
 	return Node1->Evaluate() && Node2->Evaluate();
 }
 
+bool INTC::EQN::AND::AddNode(EquationNode *node)
+{
+	if (!Node1) { Node1 = node; return true; }
+	if (!Node2) { Node2 = node; return true; }
+	return false;
+}
+
+bool INTC::EQN::AND::FullNodes()
+{
+	return Node1 && Node2;
+}
+
+
+
 bool INTC::EQN::OR::Evaluate()
 {
 	return Node1->Evaluate() || Node2->Evaluate();
 };
+
+bool INTC::EQN::OR::AddNode(EquationNode *node)
+{
+	if (!Node1) { Node1 = node; return true; }
+	if (!Node2) { Node2 = node; return true; }
+	return false;
+}
+
+bool INTC::EQN::OR::FullNodes()
+{
+	return Node1 && Node2;
+}
+
 
 bool INTC::EQN::NOT::Evaluate()
 {
 	return !Node1->Evaluate();
 };
 
-bool INTC::EQN::Value::Evaluate()
+bool INTC::EQN::NOT::AddNode(EquationNode *node)
+{
+	if (!Node1) { Node1 = node; return true; }
+	return false;
+}
+
+bool INTC::EQN::NOT::FullNodes()
+{
+	return !!Node1;
+}
+
+
+bool INTC::EQN::VAL::Evaluate()
 {
 	return Status;
+}
+
+bool INTC::EQN::VAL::AddNode(EquationNode *node)
+{
+	return false;
+}
+
+bool INTC::EQN::VAL::FullNodes()
+{
+	return true;
+}
+
+
+INTC::EQN::Equation::~Equation()
+{
+	for (int i = 0; i < Nodes.size(); i++)
+	{
+		if (Nodes[i]) { delete Nodes[i]; }
+	}
 }
 
 bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
@@ -121,4 +207,37 @@ bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 	return RootNode->Evaluate();
 }
 
+bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reversePolish)
+{
+	std::vector<EquationNode *> stack;
+	int rec = 0;
 
+	{
+		ROOT *root = new ROOT();
+		stack.push_back(root);
+		Nodes.push_back(root);
+	}
+
+	for (int i = 0; i < (int)reversePolish.size(); i++)
+	{
+		std::string expr = reversePolish[i];
+		EquationNode *node;
+
+		if (expr == "AND")
+		{
+			node = new AND();
+		}
+		if (expr == "Value")
+		{
+			node = new VAL();
+			Nodes.push_back(node);
+		}
+
+		Nodes.push_back(node);
+		while (Nodes[rec]->FullNodes()) { stack.pop_back(); rec--; }
+		Nodes[rec - 1]->AddNode(node);
+		if (!node->FullNodes()) { stack.push_back(node); rec++; }
+	}
+
+	return true;
+}

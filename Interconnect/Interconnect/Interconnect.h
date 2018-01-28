@@ -128,6 +128,17 @@ namespace INTC
 			//EquationNodeType Type;
 
 			virtual bool Evaluate();
+			virtual bool AddNode(EquationNode *node);
+			virtual bool FullNodes();
+		};
+
+		struct ROOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
 		};
 
 		struct AND : EquationNode
@@ -136,6 +147,8 @@ namespace INTC
 			EquationNode *Node2 = 0;
 
 			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
 		};
 
 		struct OR : EquationNode
@@ -144,6 +157,8 @@ namespace INTC
 			EquationNode *Node2 = 0;
 
 			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
 		};
 
 		struct NOT : EquationNode
@@ -151,23 +166,31 @@ namespace INTC
 			EquationNode *Node1 = 0;
 
 			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
 		};
 
-		struct Value : EquationNode
+		struct VAL : EquationNode
 		{
 			std::string Name;
 			bool Status;
 
 			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
 		};
 
 		struct Equation
 		{
 			std::vector<EquationNode *> Nodes;
-			std::vector<Value *> Values;
+			std::vector<VAL *> Values;
 			EquationNode *RootNode;
+
+			~Equation();
 			
 			bool Evaluate(std::vector<std::string> stringList);
+
+			bool GenFromReversePolish(std::vector<std::string> reversePolish);
 		};
 	}
 

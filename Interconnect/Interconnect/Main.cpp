@@ -37,8 +37,8 @@ void main()
 	INTC::EQN::Equation equation;
 	INTC::EQN::EquationNode *node;
 	node = new INTC::EQN::AND(); equation.Nodes.push_back(node); equation.RootNode = node;
-	node = new INTC::EQN::Value(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::Value *)node); ((INTC::EQN::AND *)equation.RootNode)->Node1 = node;
-	node = new INTC::EQN::Value(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::Value *)node); ((INTC::EQN::AND *)equation.RootNode)->Node2 = node;
+	node = new INTC::EQN::VAL(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::VAL*)node); ((INTC::EQN::AND *)equation.RootNode)->Node1 = node;
+	node = new INTC::EQN::VAL(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::VAL *)node); ((INTC::EQN::AND *)equation.RootNode)->Node2 = node;
 	equation.Values[0]->Name = "A";
 	equation.Values[1]->Name = "GE";
 
