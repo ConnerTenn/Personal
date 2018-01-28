@@ -201,7 +201,10 @@ bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 {
 	for (int i = 0; i < Values.size(); i++)
 	{
-		Values[i]->Status = Values[i]->Status || stringList[i] == Values[i]->Name;
+		for (int j = 0; j < stringList.size(); j++)
+		{
+			Values[i]->Status = Values[i]->Status || stringList[j] == Values[i]->Name;
+		}
 	}
 
 	return RootNode->Evaluate();
@@ -216,27 +219,40 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 		ROOT *root = new ROOT();
 		stack.push_back(root);
 		Nodes.push_back(root);
+		RootNode = root;
 	}
 
 	for (int i = 0; i < (int)reversePolish.size(); i++)
 	{
 		std::string expr = reversePolish[i];
-		EquationNode *node;
+		EquationNode *node = 0;
 
 		if (expr == "AND")
 		{
 			node = new AND();
 		}
-		if (expr == "Value")
+		if (expr == "OR")
+		{
+			node = new OR();
+		}
+		if (expr == "NOT")
+		{
+			node = new NOT();
+		}
+		if (expr == "VAL")
 		{
 			node = new VAL();
-			Nodes.push_back(node);
+			i++; ((VAL *)node)->Name = reversePolish[i];
+			Values.push_back((VAL *)node);
 		}
 
 		Nodes.push_back(node);
-		while (Nodes[rec]->FullNodes()) { stack.pop_back(); rec--; }
-		Nodes[rec - 1]->AddNode(node);
-		if (!node->FullNodes()) { stack.push_back(node); rec++; }
+
+
+		stack.push_back(node); rec++;
+		stack[rec - 1]->AddNode(node);
+		while (rec >= 0 && stack[rec]->FullNodes()) { 
+			stack.pop_back(); rec--; }
 	}
 
 	return true;

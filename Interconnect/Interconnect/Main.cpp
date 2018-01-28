@@ -35,14 +35,10 @@ void main()
 	std::cout << "-------------------------\n";
 
 	INTC::EQN::Equation equation;
-	INTC::EQN::EquationNode *node;
-	node = new INTC::EQN::AND(); equation.Nodes.push_back(node); equation.RootNode = node;
-	node = new INTC::EQN::VAL(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::VAL*)node); ((INTC::EQN::AND *)equation.RootNode)->Node1 = node;
-	node = new INTC::EQN::VAL(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::VAL *)node); ((INTC::EQN::AND *)equation.RootNode)->Node2 = node;
-	equation.Values[0]->Name = "A";
-	equation.Values[1]->Name = "GE";
 
-	std::cout << "equation: " << equation.Evaluate({ "A", "E" }) << "\n";
+	equation.GenFromReversePolish({ "AND", "VAL", "A", "OR", "VAL", "G", "VAL", "E" });
+
+	std::cout << "equation: " << equation.Evaluate({ "E", "A" }) << "\n";
 
 	std::string out;
 	std::getline(std::cin, out);
