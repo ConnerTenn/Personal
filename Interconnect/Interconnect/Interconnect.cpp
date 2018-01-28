@@ -119,6 +119,23 @@ bool INTC::EQN::ROOT::FullNodes()
 }
 
 
+bool INTC::EQN::NOT::Evaluate()
+{
+	return !Node1->Evaluate();
+};
+
+bool INTC::EQN::NOT::AddNode(EquationNode *node)
+{
+	if (!Node1) { Node1 = node; return true; }
+	return false;
+}
+
+bool INTC::EQN::NOT::FullNodes()
+{
+	return !!Node1;
+}
+
+
 bool INTC::EQN::AND::Evaluate()
 {
 	return Node1->Evaluate() && Node2->Evaluate();
@@ -156,20 +173,21 @@ bool INTC::EQN::OR::FullNodes()
 }
 
 
-bool INTC::EQN::NOT::Evaluate()
+bool INTC::EQN::XOR::Evaluate()
 {
-	return !Node1->Evaluate();
+	return Node1->Evaluate() != Node2->Evaluate();
 };
 
-bool INTC::EQN::NOT::AddNode(EquationNode *node)
+bool INTC::EQN::XOR::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
+	if (!Node2) { Node2 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::NOT::FullNodes()
+bool INTC::EQN::XOR::FullNodes()
 {
-	return !!Node1;
+	return Node1 && Node2;
 }
 
 
@@ -227,6 +245,10 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 		std::string expr = reversePolish[i];
 		EquationNode *node = 0;
 
+		if (expr == "NOT")
+		{
+			node = new NOT();
+		}
 		if (expr == "AND")
 		{
 			node = new AND();
@@ -235,9 +257,9 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 		{
 			node = new OR();
 		}
-		if (expr == "NOT")
+		if (expr == "XOR")
 		{
-			node = new NOT();
+			node = new XOR();
 		}
 		if (expr == "VAL")
 		{
