@@ -18,19 +18,19 @@ std::string OpenQuote = "\"";
 std::string CloseQuote = "\"";
 std::string Delimeter = ",";*/
 
-bool INTC::IsOperator(char character, int index)
+/*bool INTC::IsOperator(char character, int index)
 {
-	/*if (character == OPE::Not[index]) { return true; }
+	if (character == OPE::Not[index]) { return true; }
 	else if (character == OPE::And[index]) { return true; }
 	else if (character == OPE::Or[index]) { return true; }
 	else if (character == OPE::Xor[index]) { return true; }
 	else if (character == OPE::EscapeChar[index]) { return true; }
 	else if (character == OPE::OpenBracket[index]) { return true; }
-	else if (character == OPE::CloseBracket[index]) { return true; }*/
+	else if (character == OPE::CloseBracket[index]) { return true; }
 	//return false;
 
 
-}
+}*/
 
 std::vector<INTC::Node> INTC::Network = {};
 
@@ -41,7 +41,7 @@ std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 	
 	{
 		int index = -1; int wordState = 0;
-		for (int i = 0; i < search.size(); i++)
+		for (int i = 0; i < (int)search.size(); i++)
 		{
 			if (isalpha(search[i]) || search[i] == '_')
 			{
@@ -62,14 +62,14 @@ std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 		}
 	}
 
-	for (int i = 0; i < Network.size(); i++)
+	for (int i = 0; i < (int)Network.size(); i++)
 	{
 		bool hasNames = true;
 
-		for (int s = 0; s < names.size() && hasNames; s++)
+		for (int s = 0; s < (int)names.size() && hasNames; s++)
 		{
 			bool has = false;
-			for (int n = 0; n < Network[i].Nodes.size() && !has; n++)
+			for (int n = 0; n <(int)Network[i].Nodes.size() && !has; n++)
 			{
 				if (Network[i].Nodes[n]->Name == names[s])
 				{
@@ -84,4 +84,41 @@ std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 
 	return out;
 }
+
+
+bool  INTC::EQN::EquationNode::Evaluate()
+{
+	return false;
+}
+
+bool INTC::EQN::AND::Evaluate()
+{
+	return Node1->Evaluate() && Node2->Evaluate();
+}
+
+bool INTC::EQN::OR::Evaluate()
+{
+	return Node1->Evaluate() || Node2->Evaluate();
+};
+
+bool INTC::EQN::NOT::Evaluate()
+{
+	return !Node1->Evaluate();
+};
+
+bool INTC::EQN::Value::Evaluate()
+{
+	return Status;
+}
+
+bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
+{
+	for (int i = 0; i < Values.size(); i++)
+	{
+		Values[i]->Status = Values[i]->Status || stringList[i] == Values[i]->Name;
+	}
+
+	return RootNode->Evaluate();
+}
+
 

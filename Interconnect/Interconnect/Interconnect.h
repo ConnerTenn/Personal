@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "Parser.h"
 
 typedef uint8_t u8;
 typedef uint16_t u16;
@@ -15,7 +16,9 @@ typedef uint64_t u64;
 
 namespace INTC
 {
-	/*namespace OPE
+	/*
+	//Use of extern instead of const so that value can be changed at runtime (by config file)
+	namespace OPE
 	{
 		extern char Not[2];
 		//char And[2] = "&";
@@ -109,59 +112,62 @@ namespace INTC
 
 	std::vector<INTC::Node *> FindNodes(std::string search);
 
-	
-	namespace OPE
-	{
-		const char Not[3] = { '!', 0, 0 };
-		//char And[2] = "&";
-		//char Or[2] = "|";
-		//char Xor[2] = "^";
-		//std::string Dir = "/";
-		//std::string ForwardDir = ">";
-		//std::string Reverse = "<";
-		//char EscapeChar[2] = "\\";
-		//char OpenBracket[2] = "(";
-		//char CloseBracket[2] = ")";
-		//std::string OpenList = "{"; Not necessary 
-		//std::string CloseList = "}";
-		//std::string OpenQuote = "\"";
-		//std::string CloseQuote = "\"";
-		//std::string Delimeter = ",";
-	}
-
-	bool IsOperator(char character, int index);
+	//bool IsOperator(char character, int index);
 
 	namespace EQN
 	{
 
-		enum EquationNodeType
+		/*enum EquationNodeType
 		{
-			Operator,
 			Value,
-		};
+			//Operator,
+		};*/
 
 		struct EquationNode
 		{
-			std::string Name;
-			EquationNodeType Tyoe;
-			//bool Operator;
-			//bool Value;
+			//EquationNodeType Type;
+
+			virtual bool Evaluate();
 		};
 
-		/*struct Operator : EquationNode
+		struct AND : EquationNode
 		{
+			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
 
+			bool Evaluate();
+		};
+
+		struct OR : EquationNode
+		{
+			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
+
+			bool Evaluate();
+		};
+
+		struct NOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			bool Evaluate();
 		};
 
 		struct Value : EquationNode
 		{
+			std::string Name;
+			bool Status;
 
-		};*/
+			bool Evaluate();
+		};
 
 		struct Equation
 		{
-			std::vector<EquationNode> EquationNodes;
-
+			std::vector<EquationNode *> Nodes;
+			std::vector<Value *> Values;
+			EquationNode *RootNode;
+			
+			bool Evaluate(std::vector<std::string> stringList);
 		};
 	}
 

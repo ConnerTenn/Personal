@@ -42,8 +42,8 @@ namespace PARSE
 	class InputParser : public Parser
 	{
 	private:
-		u8 OperatorState = 0;
-		u8 IdentifierState = 0;
+		//u8 OperatorState = 0;
+		//u8 IdentifierState = 0;
 
 		Result (InputParser::*Func)(char next);
 
@@ -54,7 +54,7 @@ namespace PARSE
 		Result End();
 
 		Result Identifier(char next);
-		Result Operator(char next);
+		//Result Operator(char next);
 		Result Whitespace(char next);
 	};
 }

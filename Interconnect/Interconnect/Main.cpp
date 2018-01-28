@@ -23,10 +23,10 @@ void main()
 	INTC::Network[5].Nodes.push_back(&INTC::Network[1]);
 	INTC::Network[5].Nodes.push_back(&INTC::Network[3]);
 
-	for (int i = 0; i < INTC::Network.size(); i++)
+	for (int i = 0; i < (int)INTC::Network.size(); i++)
 	{
 		std::cout << INTC::Network[i].Name << "\n";
-		for (int j = 0; j < INTC::Network[i].Nodes.size(); j++)
+		for (int j = 0; j < (int)INTC::Network[i].Nodes.size(); j++)
 		{
 			std::cout << "  " << INTC::Network[i].Nodes[j]->Name << "\n";
 		}
@@ -34,11 +34,15 @@ void main()
 
 	std::cout << "-------------------------\n";
 
-	std::vector<INTC::Node *> list = INTC::FindNodes("GE A");
-	for (int i = 0; i < list.size(); i++)
-	{
-		std::cout << list[i]->Name << "\n";
-	}
+	INTC::EQN::Equation equation;
+	INTC::EQN::EquationNode *node;
+	node = new INTC::EQN::AND(); equation.Nodes.push_back(node); equation.RootNode = node;
+	node = new INTC::EQN::Value(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::Value *)node); ((INTC::EQN::AND *)equation.RootNode)->Node1 = node;
+	node = new INTC::EQN::Value(); equation.Nodes.push_back(node); equation.Values.push_back((INTC::EQN::Value *)node); ((INTC::EQN::AND *)equation.RootNode)->Node2 = node;
+	equation.Values[0]->Name = "A";
+	equation.Values[1]->Name = "GE";
+
+	std::cout << "equation: " << equation.Evaluate({ "A", "E" }) << "\n";
 
 	std::string out;
 	std::getline(std::cin, out);
