@@ -141,6 +141,15 @@ namespace INTC
 			bool FullNodes();
 		};
 
+		struct NOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
 		struct AND : EquationNode
 		{
 			EquationNode *Node1 = 0;
@@ -161,9 +170,10 @@ namespace INTC
 			bool FullNodes();
 		};
 
-		struct NOT : EquationNode
+		struct XOR : EquationNode
 		{
 			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
 
 			bool Evaluate();
 			bool AddNode(EquationNode *node);
