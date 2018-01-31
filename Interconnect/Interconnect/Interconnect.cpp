@@ -32,6 +32,16 @@ std::string Delimeter = ",";*/
 
 }*/
 
+std::vector<std::string> INTC::Node::GetSubNodeNames()
+{
+	std::vector<std::string> list;
+	for (int i = 0; i < Nodes.size(); i++)
+	{
+		list.push_back(Nodes[i]->Name);
+	}
+	return list;
+}
+
 std::vector<INTC::Node> INTC::Network = {};
 
 std::vector<INTC::Node *> INTC::FindNodes(std::string search)

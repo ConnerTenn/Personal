@@ -7,12 +7,16 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <math.h>
 #include "Parser.h"
 
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
+
+#define MIN(a,b) ((a)<(b)?(a):(b))
+#define MAX(a,b) ((a)>(b)?(a):(b))
 
 namespace INTC
 {
@@ -107,7 +111,10 @@ namespace INTC
 		
 		Node() {}
 		Node(std::string name) : Name(name) {}
+
+		std::vector<std::string> GetSubNodeNames();
 	};
+	
 	extern std::vector<Node> Network;
 
 	std::vector<INTC::Node *> FindNodes(std::string search);
