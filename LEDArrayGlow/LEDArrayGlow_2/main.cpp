@@ -130,7 +130,7 @@ void UpdateRGB()
 				for (int m = -1; m <= 1; m++)
 				{
 					int lx = (x / LMUL + n)*LMUL, ly = (y / LMUL + m)*LMUL;
-					float weight = (float)(1.0 / Dist((u8)x, (u8)y, (u8)lx, (u8)ly);
+					float weight = (float)(1.0 / Dist((u8)x, (u8)y, (u8)lx, (u8)ly));
 					//calculate sum and divisor for interpolaation calculation
 					sum += weight * LEADER[lx][ly][0];
 					divisor += weight;
