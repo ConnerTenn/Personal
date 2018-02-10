@@ -114,10 +114,6 @@ namespace INTC
 
 		std::vector<std::string> GetSubNodeNames();
 	};
-	
-	extern std::vector<Node> Network;
-
-	std::vector<INTC::Node *> FindNodes(std::string search);
 
 	//bool IsOperator(char character, int index);
 
@@ -210,6 +206,24 @@ namespace INTC
 			bool GenFromReversePolish(std::vector<std::string> reversePolish);
 		};
 	}
+
+	//extern std::vector<Node> Network;
+
+	class Network
+	{
+	public:
+		std::vector<Node *> NodeNetwork;
+
+		~Network();
+
+		void Add(std::string name, std::string sub = "");
+		std::vector<Node *> Find(EQN::Equation &equation);
+		std::vector<Node *> Find(std::vector<std::string> reversePolish);
+
+		
+	};
+
+	
 
 	//bool Evaluate();
 }

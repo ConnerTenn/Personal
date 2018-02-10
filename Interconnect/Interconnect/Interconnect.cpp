@@ -42,8 +42,9 @@ std::vector<std::string> INTC::Node::GetSubNodeNames()
 	return list;
 }
 
-std::vector<INTC::Node> INTC::Network = {};
+//std::vector<INTC::Node> INTC::Network = {};
 
+/*
 std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 {
 	std::vector<std::string> names; 
@@ -94,6 +95,7 @@ std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 
 	return out;
 }
+*/
 
 
 bool INTC::EQN::EquationNode::Evaluate()
@@ -221,7 +223,7 @@ INTC::EQN::Equation::~Equation()
 {
 	for (int i = 0; i < Nodes.size(); i++)
 	{
-		if (Nodes[i]) { delete Nodes[i]; }
+		delete Nodes[i]; Nodes[i] = 0;
 	}
 }
 
@@ -229,6 +231,8 @@ bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 {
 	for (int i = 0; i < Values.size(); i++)
 	{
+		Values[i]->Status = false;
+
 		for (int j = 0; j < stringList.size(); j++)
 		{
 			Values[i]->Status = Values[i]->Status || stringList[j] == Values[i]->Name;
@@ -289,3 +293,50 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 
 	return true;
 }
+
+
+INTC::Network::~Network()
+{
+	for (int i = 0; i < NodeNetwork.size(); i++)
+	{
+		delete NodeNetwork[i]; NodeNetwork[i] = 0;
+	}
+}
+
+void INTC::Network::Add(std::string name, std::string sub)
+{
+	Node *foundName = 0, *foundSub = 0;
+	for (int i = 0; i < NodeNetwork.size(); i++)
+	{
+		if (NodeNetwork[i]->Name == name) { foundName = NodeNetwork[i]; }
+		if (NodeNetwork[i]->Name == sub) { foundSub = NodeNetwork[i]; }
+	}
+	if (!foundName) { NodeNetwork.push_back(new INTC::Node(name)); foundName = NodeNetwork.back(); }
+	if (foundName && !foundSub) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
+	if (foundName && foundSub) { foundName->Nodes.push_back(foundSub); }
+}
+
+std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
+{
+	std::vector<Node *> results; 
+
+	for (int i = 0; i < (int)NodeNetwork.size(); i++)
+	{
+		if (equation.Evaluate(NodeNetwork[i]->GetSubNodeNames()))
+		{
+			results.push_back(NodeNetwork[i]);
+		}
+	}
+
+	return results;
+}
+
+std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePolish)
+{
+	EQN::Equation equation;
+	equation.GenFromReversePolish(reversePolish);
+	
+	return Find(equation);
+}
+
+
