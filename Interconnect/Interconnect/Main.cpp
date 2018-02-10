@@ -96,8 +96,6 @@ void main()
 		}
 	}
 
-	std::string out;
-	std::getline(std::cin, out);
 }
 
 

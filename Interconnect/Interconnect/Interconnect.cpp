@@ -263,22 +263,22 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 		{
 			node = new NOT();
 		}
-		if (expr == "AND")
+		else if (expr == "AND")
 		{
 			node = new AND();
 		}
-		if (expr == "OR")
+		else if (expr == "OR")
 		{
 			node = new OR();
 		}
-		if (expr == "XOR")
+		else if (expr == "XOR")
 		{
 			node = new XOR();
 		}
-		if (expr == "VAL")
+		else //VAL
 		{
 			node = new VAL();
-			i++; ((VAL *)node)->Name = reversePolish[i];
+			((VAL *)node)->Name = reversePolish[i];
 			Values.push_back((VAL *)node);
 		}
 
@@ -312,7 +312,7 @@ void INTC::Network::Add(std::string name, std::string sub)
 		if (NodeNetwork[i]->Name == sub) { foundSub = NodeNetwork[i]; }
 	}
 	if (!foundName) { NodeNetwork.push_back(new INTC::Node(name)); foundName = NodeNetwork.back(); }
-	if (foundName && !foundSub) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
+	if (foundName && !foundSub && sub.length()) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
 	if (foundName && foundSub) { foundName->Nodes.push_back(foundSub); }
 }
 
