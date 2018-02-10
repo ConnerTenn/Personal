@@ -20,10 +20,10 @@ Result InputParser::Start(char next)
 	{
 		Func = &InputParser::Identifier;
 	}
-	else if (INTC::IsOperator(next, 0))
+	/*else if (INTC::IsOperator(next, 0))
 	{
 		Func = &InputParser::Operator;
-	}
+	}*/
 
 
 	return Result::Continue;
@@ -41,11 +41,11 @@ Result InputParser::Identifier(char next)
 	return Result::Continue;
 }
 
-Result InputParser::Operator(char next)
+/*Result InputParser::Operator(char next)
 {
 	std::cout << "Operator: " << next << "\n";
 	return Result::Continue;
-}
+}*/
 
 Result InputParser::Whitespace(char next)
 {

@@ -7,14 +7,21 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <math.h>
+#include "Parser.h"
 
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
 
+#define MIN(a,b) ((a)<(b)?(a):(b))
+#define MAX(a,b) ((a)>(b)?(a):(b))
+
 namespace INTC
 {
+	/*
+	//Use of extern instead of const so that value can be changed at runtime (by config file)
 	namespace OPE
 	{
 		extern char Not[2];
@@ -32,7 +39,7 @@ namespace INTC
 		//std::string OpenQuote = "\"";
 		//std::string CloseQuote = "\"";
 		//std::string Delimeter = ",";
-	}
+	}*/
 	/*
 	namespace LOGIC
 	{
@@ -95,7 +102,6 @@ namespace INTC
 	};
 	*/
 
-	bool IsOperator(char character, int index);
 
 
 	struct Node
@@ -105,21 +111,121 @@ namespace INTC
 		
 		Node() {}
 		Node(std::string name) : Name(name) {}
-	};
-	extern std::vector<Node> Network;
 
-	std::vector<INTC::Node *> FindNodes(std::string search);
+		std::vector<std::string> GetSubNodeNames();
+	};
+
+	//bool IsOperator(char character, int index);
+
+	namespace EQN
+	{
+
+		/*enum EquationNodeType
+		{
+			Value,
+			//Operator,
+		};*/
+
+		struct EquationNode
+		{
+			//EquationNodeType Type;
+
+			virtual bool Evaluate();
+			virtual bool AddNode(EquationNode *node);
+			virtual bool FullNodes();
+		};
+
+		struct ROOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct NOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct AND : EquationNode
+		{
+			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct OR : EquationNode
+		{
+			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct XOR : EquationNode
+		{
+			EquationNode *Node1 = 0;
+			EquationNode *Node2 = 0;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct VAL : EquationNode
+		{
+			std::string Name;
+			bool Status;
+
+			bool Evaluate();
+			bool AddNode(EquationNode *node);
+			bool FullNodes();
+		};
+
+		struct Equation
+		{
+			std::vector<EquationNode *> Nodes;
+			std::vector<VAL *> Values;
+			EquationNode *RootNode;
+
+			~Equation();
+			
+			bool Evaluate(std::vector<std::string> stringList);
+
+			bool GenFromReversePolish(std::vector<std::string> reversePolish);
+		};
+	}
+
+	//extern std::vector<Node> Network;
+
+	class Network
+	{
+	public:
+		std::vector<Node *> NodeNetwork;
+
+		~Network();
+
+		void Add(std::string name, std::string sub = "");
+		std::vector<Node *> Find(EQN::Equation &equation);
+		std::vector<Node *> Find(std::vector<std::string> reversePolish);
+
+		
+	};
 
 	
 
-	struct Equation
-	{
-		std::string Name;
-		bool Operator;
-		bool Value;
-	};
-
-	bool Evaluate();
+	//bool Evaluate();
 }
 
 
