@@ -58,7 +58,7 @@ void main()
 
 		//std::cout << command << "\n#" << line << "#\n";
 
-		if (command == "end")
+		if (command == "end" || command == "exit")
 		{
 			run = false;
 		}
@@ -73,7 +73,7 @@ void main()
 		{
 			std::vector<std::string> reversePolish;
 			//{ int i = 0;  while (i < line.size()) { int find = line.find(' ', i); if (find != std::string::npos) { reversePolish.push_back(line.substr(i, find)); i = find + 1; } else { i = line.size(); } } }
-			reversePolish.push_back("");  int i = 0; while (i < line.size()) { if (line[i] == ' ') { reversePolish.push_back(""); } else { reversePolish.back() += line[i]; } i++; }
+			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { reversePolish.push_back(""); space = false; } reversePolish.back() += line[i]; } i++; }
 
 
 			std::vector<INTC::Node *> nodes = network.Find(reversePolish);

@@ -284,13 +284,13 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 
 		Nodes.push_back(node);
 
-
+		if (rec < 0) { return false; }
 		stack.push_back(node); rec++;
 		stack[rec - 1]->AddNode(node);
-		while (rec >= 0 && stack[rec]->FullNodes()) { 
-			stack.pop_back(); rec--; }
+		while (rec >= 0 && stack[rec]->FullNodes()) { stack.pop_back(); rec--; }
 	}
 
+	if (rec != -1) { return false; }
 	return true;
 }
 
@@ -334,7 +334,11 @@ std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
 std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePolish)
 {
 	EQN::Equation equation;
-	equation.GenFromReversePolish(reversePolish);
+	if (!equation.GenFromReversePolish(reversePolish))
+	{
+		std::cout << "ERROR parsing reversePolish\n";
+		return {};
+	}
 	
 	return Find(equation);
 }
