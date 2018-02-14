@@ -43,8 +43,7 @@ void main()
 	std::cout << "equation: " << equation.Evaluate({ "E", "A" }) << "\n";*/
 
 	//INTC::Network.push_back(INTC::Node("A"));
-
-
+	
 	bool run = true;
 	while (run)
 	{
@@ -65,14 +64,13 @@ void main()
 		else if (command == "add")
 		{
 			std::vector<std::string> words;
-			words.push_back("");  int i = 0; while (i < line.size()) { if (line[i] == ' ') { words.push_back(""); } else { words.back() += line[i]; } i++; }
+			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { words.push_back(""); space = false; } words.back() += line[i]; } i++; }
 
 			network.Add(words[0], (words.size() > 1 ? words[1] : ""));
 		}
 		else if (command == "find")
 		{
 			std::vector<std::string> reversePolish;
-			//{ int i = 0;  while (i < line.size()) { int find = line.find(' ', i); if (find != std::string::npos) { reversePolish.push_back(line.substr(i, find)); i = find + 1; } else { i = line.size(); } } }
 			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { reversePolish.push_back(""); space = false; } reversePolish.back() += line[i]; } i++; }
 
 
