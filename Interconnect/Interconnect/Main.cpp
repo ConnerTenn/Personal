@@ -2,7 +2,7 @@
 #include "Parser.h"
 #include "Interconnect.h"
 
-void main()
+int main()
 {
 	INTC::Network network;
 
@@ -94,6 +94,7 @@ void main()
 		}
 	}
 
+	return 0;
 }
 
 
