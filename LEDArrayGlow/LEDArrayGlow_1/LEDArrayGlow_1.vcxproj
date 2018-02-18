@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{373DD293-6841-47B0-9D5A-0F484FFA4FF3}</ProjectGuid>
-    <RootNamespace>LEDArrayGlow_00</RootNamespace>
+    <ProjectGuid>{20855231-193D-4A9D-B5E4-3B6E694DC845}</ProjectGuid>
+    <RootNamespace>LEDArrayGlow_1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Sync\Programming Projects\C++\Windows Library\WinLib_2\WinLib_2.0.1;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Sync\Programming Projects\C++\Windows Library\WinLib_2\WinLib_2.0.1\x64\LibReleaseMDd;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Sync\Programming Projects\C++\Windows Library\WinLib_2\x64\LibReleaseMD;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Sync\Programming Projects\C++\Windows Library\WinLib_2\WinLib_2.0.1;$(IncludePath)</IncludePath>
@@ -125,6 +125,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
