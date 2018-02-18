@@ -247,21 +247,21 @@ void main()
 	{
 		if (CorrectPasswordCntStart)
 		{
-			if (Counter - CorrectPasswordCntStart >= 4200 && MotorState == 0)
+			if (Counter - CorrectPasswordCntStart >= 500 && MotorState == 0)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
 				DisableMotor();
 				MotorState = 1;
 			}
-			if (Counter - CorrectPasswordCntStart >= 4700 && MotorState == 1)
+			if (Counter - CorrectPasswordCntStart >= 700 && MotorState == 1)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
 				ReverseMotor();
 				MotorState = 2;
 			}
-			if (Counter - CorrectPasswordCntStart >= 6700 && MotorState == 2)
+			if (Counter - CorrectPasswordCntStart >= 1200 && MotorState == 2)
 			{
 				CorrectPasswordCntStart = 0;
 				DisableMotor();
