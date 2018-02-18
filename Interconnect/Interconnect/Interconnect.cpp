@@ -221,14 +221,24 @@ bool INTC::EQN::VAL::FullNodes()
 
 INTC::EQN::Equation::~Equation()
 {
+	DeleteNodes();
+}
+
+void INTC::EQN::Equation::DeleteNodes()
+{
 	for (int i = 0; i < Nodes.size(); i++)
 	{
 		delete Nodes[i]; Nodes[i] = 0;
 	}
+	Nodes = {};
+	Values = {};
+	RootNode = 0;
 }
+
 
 bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 {
+	//Set each value element to true if the value element name matches a name in stringList
 	for (int i = 0; i < Values.size(); i++)
 	{
 		Values[i]->Status = false;
@@ -244,10 +254,13 @@ bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 
 bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reversePolish)
 {
+	DeleteNodes();
+
 	std::vector<EquationNode *> stack;
 	int rec = 0;
 
 	{
+		//Init with root node to ensure similar entry point
 		ROOT *root = new ROOT();
 		stack.push_back(root);
 		Nodes.push_back(root);
@@ -306,14 +319,17 @@ INTC::Network::~Network()
 void INTC::Network::Add(std::string name, std::string sub)
 {
 	Node *foundName = 0, *foundSub = 0;
+	//search for if elements are already in the network
 	for (int i = 0; i < NodeNetwork.size(); i++)
 	{
 		if (NodeNetwork[i]->Name == name) { foundName = NodeNetwork[i]; }
 		if (NodeNetwork[i]->Name == sub) { foundSub = NodeNetwork[i]; }
 	}
+	//Add elements to to the network if they didnt already exist
 	if (!foundName) { NodeNetwork.push_back(new INTC::Node(name)); foundName = NodeNetwork.back(); }
-	if (foundName && !foundSub && sub.length()) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
-	if (foundName && foundSub) { foundName->Nodes.push_back(foundSub); }
+	if (!foundSub && sub.length()) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
+	//add sub element to parent
+	if (foundSub) { foundName->Nodes.push_back(foundSub); }
 }
 
 std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
@@ -341,6 +357,7 @@ std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePo
 	}
 	
 	return Find(equation);
+	//Equation gets destroyed and all memory released
 }
 
 

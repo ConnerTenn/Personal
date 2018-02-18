@@ -193,13 +193,15 @@ namespace INTC
 			bool FullNodes();
 		};
 
-		struct Equation
+		class Equation
 		{
+		public:
 			std::vector<EquationNode *> Nodes;
 			std::vector<VAL *> Values;
 			EquationNode *RootNode;
 
 			~Equation();
+			void DeleteNodes();
 			
 			bool Evaluate(std::vector<std::string> stringList);
 
