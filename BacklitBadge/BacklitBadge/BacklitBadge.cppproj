@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
-    <ProjectGuid>dce6c7e4-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <ProjectGuid>dcffc7e4-ee26-4d79-826b-08594b9ad897</ProjectGuid>
     <avrdevice>ATtiny828</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>BacklitBadge02</AssemblyName>
-    <Name>BacklitBadge02</Name>
-    <RootNamespace>BacklitBadge02</RootNamespace>
+    <AssemblyName>BacklitBadge</AssemblyName>
+    <Name>BacklitBadge</Name>
+    <RootNamespace>BacklitBadge</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
