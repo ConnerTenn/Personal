@@ -67,6 +67,7 @@ int main()
 			//Seperate to spaces
 			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { words.push_back(""); space = false; } words.back() += line[i]; } i++; }
 
+			//If there are more than one words, the second word is added as a child of the first
 			network.Add(words[0], (words.size() > 1 ? words[1] : ""));
 		}
 		else if (command == "find")
@@ -75,9 +76,10 @@ int main()
 			//Seperate to spaces
 			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { reversePolish.push_back(""); space = false; } reversePolish.back() += line[i]; } i++; }
 
-
+			//Get list of vectors in Network
 			std::vector<INTC::Node *> nodes = network.Find(reversePolish);
 
+			//Display found Nodes
 			for (int i = 0; i < (int)nodes.size(); i++)
 			{
 				std::cout << nodes[i]->Name << "\n";
@@ -85,7 +87,6 @@ int main()
 		}
 		else if (command == "list")
 		{
-			
 			for (int i = 0; i < (int)network.NodeNetwork.size(); i++)
 			{
 				std::cout << network.NodeNetwork[i]->Name << "\n";
