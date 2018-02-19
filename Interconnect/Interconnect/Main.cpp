@@ -43,7 +43,7 @@ int main()
 	std::cout << "equation: " << equation.Evaluate({ "E", "A" }) << "\n";*/
 
 	//INTC::Network.push_back(INTC::Node("A"));
-	
+
 	bool run = true;
 	while (run)
 	{
@@ -75,7 +75,7 @@ int main()
 			//Seperate to spaces
 			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { reversePolish.push_back(""); space = false; } reversePolish.back() += line[i]; } i++; }
 
-			
+
 			std::vector<INTC::Node *> nodes = network.Find(reversePolish);
 
 			for (int i = 0; i < (int)nodes.size(); i++)
@@ -85,6 +85,7 @@ int main()
 		}
 		else if (command == "list")
 		{
+			
 			for (int i = 0; i < (int)network.NodeNetwork.size(); i++)
 			{
 				std::cout << network.NodeNetwork[i]->Name << "\n";
@@ -98,5 +99,3 @@ int main()
 
 	return 0;
 }
-
-
