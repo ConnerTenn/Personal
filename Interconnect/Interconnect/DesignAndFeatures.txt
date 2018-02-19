@@ -1,0 +1,16 @@
+
+Operators
+	">" child or sub
+
+Syntax
+	Example >A>B
+		add A with sub B
+		can be nested to have child chains
+		implicit sub of root
+
+	Example A
+		search for Node A
+	Example .A
+		search for Node with sub A
+	Example A.B
+		search for Node a with sub B

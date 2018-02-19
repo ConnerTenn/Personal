@@ -12,7 +12,7 @@ std::string Reverse = "<";
 char EscapeChar[2] = "\\";
 char OpenBracket[2] = "(";
 char CloseBracket[2] = ")";
-std::string OpenList = "{"; Not necessary 
+std::string OpenList = "{"; Not necessary
 std::string CloseList = "}";
 std::string OpenQuote = "\"";
 std::string CloseQuote = "\"";
@@ -47,9 +47,9 @@ std::vector<std::string> INTC::Node::GetSubNodeNames()
 /*
 std::vector<INTC::Node *> INTC::FindNodes(std::string search)
 {
-	std::vector<std::string> names; 
+	std::vector<std::string> names;
 	std::vector<Node *> out;
-	
+
 	{
 		int index = -1; int wordState = 0;
 		for (int i = 0; i < (int)search.size(); i++)
@@ -334,7 +334,7 @@ void INTC::Network::Add(std::string name, std::string sub)
 
 std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
 {
-	std::vector<Node *> results; 
+	std::vector<Node *> results;
 
 	for (int i = 0; i < (int)NodeNetwork.size(); i++)
 	{
@@ -355,9 +355,7 @@ std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePo
 		std::cout << "ERROR parsing reversePolish\n";
 		return {};
 	}
-	
+
 	return Find(equation);
 	//Equation gets destroyed and all memory released
 }
-
-
