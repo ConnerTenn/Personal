@@ -34,7 +34,7 @@ namespace PARSE
 		std::vector<std::string> Parse(std::string in, Result &result);
 		std::vector<std::string> Parse(std::string in);
 		virtual Result Call(char current, char next);
-		
+
 		virtual Result Start(char next);
 		virtual Result End();
 	};
@@ -49,7 +49,7 @@ namespace PARSE
 
 	public:
 		Result Call(char current, char next);
-		
+
 		Result Start(char next);
 		Result End();
 
@@ -60,4 +60,3 @@ namespace PARSE
 }
 
 #endif // !PARSER_H
-

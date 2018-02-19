@@ -1,6 +1,7 @@
 
 Operators
-	">" child or sub
+	">" add child or sub
+	"." recall child or sub
 
 Syntax
 	Example >A>B
@@ -14,3 +15,9 @@ Syntax
 		search for Node with sub A
 	Example A.B
 		search for Node a with sub B
+
+	Example >A>.B  >A>(.b)
+		search for all emements that have sub B, then add them as sum to A
+
+	Example .>B
+		Add b as sub to all?
