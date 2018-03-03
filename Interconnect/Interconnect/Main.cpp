@@ -61,7 +61,7 @@ int main()
 		{
 			run = false;
 		}
-		else if (command == "add")
+		/*else if (command == "add")
 		{
 			std::vector<std::string> words;
 			//Seperate to spaces
@@ -95,7 +95,7 @@ int main()
 					std::cout << "  " << network.NodeNetwork[i]->Nodes[j]->Name << "\n";
 				}
 			}
-		}
+		}*/
 	}
 
 	return 0;
