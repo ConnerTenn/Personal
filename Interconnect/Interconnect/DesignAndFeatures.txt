@@ -1,7 +1,17 @@
 
 Operators
 	">" add child or sub
+		Add Right Node list as sub to Left Node list
+		return the list of Sub Nodes that was added to left Nodes
+
 	"." recall child or sub
+		Returns the list of Sub Nodes
+
+	"#" all nodes
+		returns all nodes (at a dir?)
+
+	"*" any nodes
+		returns any nodes (at a dir?)
 
 Syntax
 	Example >A>B
@@ -11,13 +21,31 @@ Syntax
 
 	Example A
 		search for Node A
-	Example .A
+	Example *.A
 		search for Node with sub A
 	Example A.B
 		search for Node a with sub B
-
+	
 	Example >A>.B  >A>(.b)
-		search for all emements that have sub B, then add them as sum to A
+		search for all emements that have sub B, then add them as sub to A
+
+	Example #>B 
+		Add b as sub to all
+
+	Example (#.)>B
+		Get sub nodes of all, add B as a sub to them.
 
 	Example .>B
-		Add b as sub to all?
+		The second one works because the sub to root is all. Then B is added as sub to root.
+
+	Example >>A   >(>A)
+		Add A as sub to root, then add root(all) as sub to A.
+
+	Example .
+		Search for nodes that have sub nodes
+
+	Example >
+		Add all as a sub to all
+	
+	Example ..
+		Search for nodes that have sub nodes of sub nodes

@@ -325,7 +325,7 @@ void INTC::Network::Add(std::string name, std::string sub)
 		if (NodeNetwork[i]->Name == name) { foundName = NodeNetwork[i]; }
 		if (NodeNetwork[i]->Name == sub) { foundSub = NodeNetwork[i]; }
 	}
-	//Add elements to to the network if they didnt already exist
+	//Add elements to to the network if they didnt already exist (allocates new memory)
 	if (!foundName) { NodeNetwork.push_back(new INTC::Node(name)); foundName = NodeNetwork.back(); }
 	if (!foundSub && sub.length()) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
 	//add sub element to parent
@@ -336,8 +336,10 @@ std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
 {
 	std::vector<Node *> results;
 
+	//check every (root) node
 	for (int i = 0; i < (int)NodeNetwork.size(); i++)
 	{
+		//finds which nodes have sub nodes that match the equation conditions
 		if (equation.Evaluate(NodeNetwork[i]->GetSubNodeNames()))
 		{
 			results.push_back(NodeNetwork[i]);
@@ -347,6 +349,7 @@ std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
 	return results;
 }
 
+//Wrapper for Previous Find function. Allows parameter to be reversePolish
 std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePolish)
 {
 	EQN::Equation equation;
