@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="2" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -144,39 +144,6 @@
 <circle x="0" y="0" radius="5.9944" width="0.3" layer="21"/>
 <circle x="0" y="0" radius="5.4944" width="0.1" layer="39"/>
 </package>
-<package name="IV-9">
-<text x="-5" y="1.73" size="1.8" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5" y="-2.73" size="1.8" layer="27" ratio="10">&gt;VALUE</text>
-<pad name="1" x="0" y="-4.9944" drill="0.525"/>
-<circle x="0" y="-4.9944" radius="1" width="0.3" layer="21"/>
-<text x="0" y="-3.7458" size="1" layer="21">1</text>
-<pad name="2" x="2.9357" y="-4.0406" drill="0.525"/>
-<circle x="2.9357" y="-4.0406" radius="1" width="0.3" layer="21"/>
-<text x="2.2017" y="-3.0304" size="1" layer="21">2</text>
-<pad name="3" x="4.75" y="-1.5434" drill="0.525"/>
-<circle x="4.75" y="-1.5434" radius="1" width="0.3" layer="21"/>
-<text x="3.5625" y="-1.1575" size="1" layer="21">3</text>
-<pad name="4" x="4.75" y="1.5434" drill="0.525"/>
-<circle x="4.75" y="1.5434" radius="1" width="0.3" layer="21"/>
-<text x="3.5625" y="1.1575" size="1" layer="21">4</text>
-<pad name="5" x="2.9357" y="4.0406" drill="0.525"/>
-<circle x="2.9357" y="4.0406" radius="1" width="0.3" layer="21"/>
-<text x="2.2017" y="3.0304" size="1" layer="21">5</text>
-<pad name="6" x="0" y="4.9944" drill="0.525"/>
-<circle x="0" y="4.9944" radius="1" width="0.3" layer="21"/>
-<text x="0" y="3.7458" size="1" layer="21">6</text>
-<pad name="7" x="-2.9357" y="4.0406" drill="0.525"/>
-<circle x="-2.9357" y="4.0406" radius="1" width="0.3" layer="21"/>
-<text x="-2.2017" y="3.0304" size="1" layer="21">7</text>
-<pad name="8" x="-4.75" y="1.5434" drill="0.525"/>
-<circle x="-4.75" y="1.5434" radius="1" width="0.3" layer="21"/>
-<text x="-3.5625" y="1.1575" size="1" layer="21">8</text>
-<pad name="9" x="-4.75" y="-1.5434" drill="0.525"/>
-<circle x="-4.75" y="-1.5434" radius="1" width="0.3" layer="21"/>
-<text x="-3.5625" y="-1.1575" size="1" layer="21">9</text>
-<circle x="0" y="0" radius="5.9944" width="0.3" layer="21"/>
-<circle x="0" y="0" radius="5.4944" width="0.1" layer="39"/>
-</package>
 </packages>
 <symbols>
 <symbol name="IV-9">
@@ -196,18 +163,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="IV-9">
-<gates>
-<gate name="G$1" symbol="IV-9" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 </devicesets>
 </library>
 </drawing>
