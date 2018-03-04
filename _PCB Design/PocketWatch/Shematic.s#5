@@ -163,13 +163,19 @@
 </classes>
 <parts>
 <part name="U$1" library="Library" deviceset="IV-9" device=""/>
+<part name="U$2" library="Library" deviceset="IV-9" device=""/>
+<part name="U$3" library="Library" deviceset="IV-9" device=""/>
+<part name="U$4" library="Library" deviceset="IV-9" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="U$1" gate="G$1" x="22" y="64"/>
+<instance part="U$1" gate="G$1" x="154" y="58"/>
+<instance part="U$2" gate="G$1" x="108" y="58"/>
+<instance part="U$3" gate="G$1" x="16" y="58"/>
+<instance part="U$4" gate="G$1" x="62" y="58"/>
 </instances>
 <busses>
 </busses>
