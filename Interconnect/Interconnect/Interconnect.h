@@ -192,6 +192,9 @@ namespace INTC
 	{
 		std::string Name;
 		std::vector<Node *> Nodes;
+		
+		//Access path
+		//std::vector<std::vector<std::string>> AccessPaths;
 
 		Node() {}
 		Node(std::string name) : Name(name) {}

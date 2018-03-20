@@ -1,7 +1,7 @@
 
 P = LinuxBuild/
 
-all: main
+all: Interconnect
 
 Parser.o: Parser.cpp Parser.h
 	g++ Parser.cpp -c -o $(P)Parser.o
@@ -12,5 +12,8 @@ InputParser.o: InputParser.cpp Parser.h
 Interconnect.o: Interconnect.cpp Interconnect.h
 	g++ Interconnect.cpp -c -o $(P)Interconnect.o
 
-main: Interconnect.o InputParser.o Parser.o
-	g++ Main.cpp $(P)Interconnect.o $(P)InputParser.o $(P)Parser.o -o $(P)Interconnect
+Main.o: Main.cpp
+	g++ Main.cpp -c -o $(P)Main.o
+
+Interconnect: Main.o Interconnect.o InputParser.o Parser.o
+	g++ $(P)Main.o $(P)Interconnect.o $(P)InputParser.o $(P)Parser.o -o $(P)Interconnect
