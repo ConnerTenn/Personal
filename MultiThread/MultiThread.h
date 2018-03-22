@@ -1,7 +1,23 @@
 
 #include <thread>
+#include <mutex>
 
-class Thread
+namespace Thread
 {
+	template <class T>
+	class Mutex
+	{
+	private:
+		T Data;
+		std::mutex Mtx;
 	
-};
+	public:
+		Mutex();
+		Mutex(T data);
+		
+		operator=(Mutex other);
+		operator=(T other);
+		
+		
+	};
+}
