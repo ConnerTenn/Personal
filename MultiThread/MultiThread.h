@@ -19,8 +19,9 @@ namespace Thread
 		/*void operator=(Mutex &other);*/
 		void operator=(T &other);
 		void operator=(T other);
+		T operator()();
 		
-		T &get();
+		/*T &get();*/
 		
 	};
 }

@@ -30,17 +30,34 @@ void Thread::Mutex<T>::operator=(Mutex &other)
 template <class T>
 void Thread::Mutex<T>::operator=(T &other)
 {
+	Mtx.lock();
 	&Data = &other;
+	Mtx.unlock();
 }
 
 template <class T>
 void Thread::Mutex<T>::operator=(T other)
 {
+	Mtx.lock();
 	Data = other;
+	Mtx.unlock();
 }
 
 template <class T>
+T Thread::Mutex<T>::operator()()
+{
+	Mtx.lock();
+	T &data = Data;
+	Mtx.unlock();
+	return data;
+}
+
+/*template <class T>
 T &Thread::Mutex<T>::get()
 {
-	return Data;
-}
+	Mtx.lock();
+	T &data = Data;
+	Mtx.unlock();
+	return data;
+}*/
+
