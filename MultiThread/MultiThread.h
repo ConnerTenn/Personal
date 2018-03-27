@@ -13,11 +13,15 @@ namespace Thread
 	
 	public:
 		Mutex();
+		Mutex(T &data);
 		Mutex(T data);
 		
-		operator=(Mutex other);
-		operator=(T other);
+		/*void operator=(Mutex &other);*/
+		void operator=(T &other);
+		void operator=(T other);
 		
+		T &get();
 		
 	};
 }
+

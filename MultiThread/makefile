@@ -1,11 +1,13 @@
 
-MultiThread.obj: MultiThread.h MultiThread.cpp
-	g++ MultiThread.cpp -c -o MultiThread.obj
+GPP = g++ -std=c++17
 
-Test: main.cpp MultiThread.obj
-	g++ main.cpp MultiThread.obj -o test.o
+Test.obj: main.cpp
+	$(GPP) main.cpp -c -o Test.obj
+
+Test: Test.obj
+	$(GPP) Test.obj -o test.o
 
 clean:
-	rm *.obj *.o
+	rm *.obj *.o -f
 
 FORCE: clean Test
