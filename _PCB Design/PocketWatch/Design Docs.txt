@@ -13,7 +13,8 @@ Time Change:
 	Use Up and down to change value
 
 On/Off:
-	2 Position switch	
+	2 Position switch
+	Connects the VCC to the charge/boost board	
 
 Colin:
 	2 leds in parallel
