@@ -4995,9 +4995,9 @@ W = angled&lt;p&gt;
 <part name="PAD2" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1"/>
 <part name="PAD3" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1"/>
 <part name="COLIN2" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="LED_E" device="" package3d_urn="urn:adsk.eagle:package:13319/1"/>
-<part name="PAD4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1"/>
-<part name="PAD5" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1"/>
-<part name="PAD6" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1"/>
+<part name="PAD4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1" value="WIREPAD"/>
+<part name="PAD5" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1" value="WIREPAD"/>
+<part name="PAD6" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="2,54/1,1" package3d_urn="urn:adsk.eagle:package:30836/1" value="WIREPAD"/>
 <part name="AM" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="LED_E" device="" package3d_urn="urn:adsk.eagle:package:13319/1"/>
 <part name="PM" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="LED_E" device="" package3d_urn="urn:adsk.eagle:package:13319/1"/>
 <part name="COLIN1" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="LED_E" device="" package3d_urn="urn:adsk.eagle:package:13319/1"/>
@@ -5005,6 +5005,9 @@ W = angled&lt;p&gt;
 <part name="R15" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1k"/>
 <part name="R16" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1k"/>
 <part name="R17" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1k"/>
+<part name="R18" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
+<part name="R19" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
+<part name="R20" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -5065,6 +5068,9 @@ W = angled&lt;p&gt;
 <instance part="R15" gate="G$1" x="-7.62" y="7.62"/>
 <instance part="R16" gate="G$1" x="-7.62" y="0"/>
 <instance part="R17" gate="G$1" x="-7.62" y="-7.62"/>
+<instance part="R18" gate="G$1" x="109.22" y="-45.72" rot="R90"/>
+<instance part="R19" gate="G$1" x="116.84" y="-45.72" rot="R90"/>
+<instance part="R20" gate="G$1" x="124.46" y="-45.72" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -5338,18 +5344,36 @@ W = angled&lt;p&gt;
 <wire x1="-53.34" y1="55.88" x2="-60.96" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-53.34" y1="55.88" x2="-53.34" y2="53.34" width="0.1524" layer="91"/>
 <junction x="-53.34" y="55.88"/>
-<wire x1="-40.64" y1="55.88" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="55.88" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
 <junction x="-40.64" y="55.88"/>
 <label x="-17.78" y="55.88" size="1.778" layer="95"/>
 <pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="55.88" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="55.88" x2="-12.7" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="48.26" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
 <junction x="-22.86" y="55.88"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="48.26" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-33.02" y="55.88"/>
 </segment>
 <segment>
 <pinref part="PAD2" gate="G$1" pin="P"/>
 <wire x1="-157.48" y1="91.44" x2="-144.78" y2="91.44" width="0.1524" layer="91"/>
 <label x="-154.94" y="91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="-40.64" x2="109.22" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-38.1" x2="116.84" y2="-38.1" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="-38.1" x2="124.46" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-38.1" x2="139.7" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-38.1" x2="124.46" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="124.46" y="-38.1"/>
+<pinref part="R19" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="-38.1" x2="116.84" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="116.84" y="-38.1"/>
+<label x="127" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -5678,6 +5702,12 @@ W = angled&lt;p&gt;
 <wire x1="170.18" y1="-20.32" x2="180.34" y2="-20.32" width="0.1524" layer="91"/>
 <label x="172.72" y="-20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="T3" gate="G$1" pin="C"/>
+<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
+<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="TG3" class="0">
 <segment>
@@ -5686,10 +5716,10 @@ W = angled&lt;p&gt;
 <label x="172.72" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="T3" gate="G$1" pin="C"/>
-<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
-<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+<pinref part="T4" gate="G$1" pin="C"/>
+<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
+<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TG0_2" class="0">
@@ -5755,14 +5785,6 @@ W = angled&lt;p&gt;
 <wire x1="208.28" y1="-17.78" x2="208.28" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-15.24" x2="218.44" y2="-15.24" width="0.1524" layer="91"/>
 <label x="210.82" y="-15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TG4" class="0">
-<segment>
-<pinref part="T4" gate="G$1" pin="C"/>
-<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
-<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -5872,15 +5894,6 @@ W = angled&lt;p&gt;
 <junction x="-106.68" y="53.34"/>
 </segment>
 </net>
-<net name="VCC1" class="0">
-<segment>
-<wire x1="-48.26" y1="55.88" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="-33.02" y1="55.88" x2="-20.32" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="48.26" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
-<junction x="-33.02" y="55.88"/>
-</segment>
-</net>
 <net name="COIN" class="0">
 <segment>
 <pinref part="MCP7940M" gate="G$1" pin="P$8"/>
@@ -5894,6 +5907,15 @@ W = angled&lt;p&gt;
 <wire x1="101.6" y1="-5.08" x2="116.84" y2="-5.08" width="0.1524" layer="91"/>
 <label x="104.14" y="-5.08" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="PAD4" gate="G$1" pin="P"/>
+<pinref part="R18" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="-53.34" x2="109.22" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-53.34" x2="109.22" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-53.34" x2="139.7" y2="-53.34" width="0.1524" layer="91"/>
+<junction x="109.22" y="-53.34"/>
+<label x="127" y="-53.34" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="B_UP" class="0">
 <segment>
@@ -5901,12 +5923,30 @@ W = angled&lt;p&gt;
 <wire x1="101.6" y1="-7.62" x2="116.84" y2="-7.62" width="0.1524" layer="91"/>
 <label x="104.14" y="-7.62" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="PAD5" gate="G$1" pin="P"/>
+<pinref part="R19" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="-60.96" x2="116.84" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="-60.96" x2="116.84" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="-60.96" x2="139.7" y2="-60.96" width="0.1524" layer="91"/>
+<junction x="116.84" y="-60.96"/>
+<label x="127" y="-60.96" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="B_DOWN" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="PC2_(ADC2/PCINT10)"/>
 <wire x1="101.6" y1="-10.16" x2="116.84" y2="-10.16" width="0.1524" layer="91"/>
 <label x="104.14" y="-10.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="PAD6" gate="G$1" pin="P"/>
+<pinref part="R20" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="-68.58" x2="124.46" y2="-68.58" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-68.58" x2="124.46" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-68.58" x2="139.7" y2="-68.58" width="0.1524" layer="91"/>
+<junction x="124.46" y="-68.58"/>
+<label x="127" y="-68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -5969,6 +6009,22 @@ W = angled&lt;p&gt;
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,27.94,17.78,U2,AVCC,VCC,,,"/>
+<approved hash="113,1,202.573,-22.4688,T1,,,,,"/>
+<approved hash="113,1,235.593,-22.4688,T2,,,,,"/>
+<approved hash="113,1,268.613,-22.4688,T3,,,,,"/>
+<approved hash="113,1,301.633,-22.4688,T4,,,,,"/>
+<approved hash="113,1,119.422,7.33044,SV1,,,,,"/>
+<approved hash="113,1,167.598,20.6096,SV3,,,,,"/>
+<approved hash="113,1,160.062,50.5104,SV2,,,,,"/>
+<approved hash="113,1,167.598,-17.4904,SV5,,,,,"/>
+<approved hash="113,1,-68.6223,-4.79044,SV6,,,,,"/>
+<approved hash="113,1,-19.05,7.29827,COLIN2,,,,,"/>
+<approved hash="113,1,-19.05,-0.321731,AM,,,,,"/>
+<approved hash="113,1,-19.05,-7.94173,PM,,,,,"/>
+<approved hash="113,1,-19.05,14.9183,COLIN1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>

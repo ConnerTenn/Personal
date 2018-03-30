@@ -445,6 +445,19 @@
 <vertex x="0" y="0"/>
 </polygon>
 </package>
+<package name="COIN">
+<smd name="V+" x="0" y="-1.5" dx="3.6" dy="3" layer="1"/>
+<smd name="V-" x="0" y="19.9" dx="3" dy="3" layer="1"/>
+<wire x1="-6.5" y1="2.3" x2="-6.5" y2="20.5" width="0.1524" layer="21"/>
+<wire x1="6.5" y1="2.3" x2="6.5" y2="20.5" width="0.1524" layer="21"/>
+<wire x1="-6.5" y1="20.5" x2="6.5" y2="20.5" width="0.1524" layer="21" curve="-71.075356"/>
+<wire x1="6.5" y1="2.3" x2="-6.5" y2="2.3" width="0.1524" layer="21" curve="-71.075356"/>
+<wire x1="-4" y1="1" x2="4" y2="1" width="0.1524" layer="21"/>
+<wire x1="-5.5" y1="1.6" x2="-5.5" y2="-1" width="0.1524" layer="21"/>
+<wire x1="-5.5" y1="-1" x2="5.5" y2="-1" width="0.1524" layer="21"/>
+<wire x1="5.5" y1="-1" x2="5.5" y2="1.6" width="0.1524" layer="21"/>
+<circle x="0" y="11.4" radius="0.3" width="0.1524" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="IV-9">
@@ -554,6 +567,16 @@
 <wire x1="10.16" y1="-25.4" x2="-10.16" y2="-25.4" width="0.1524" layer="94"/>
 <wire x1="-10.16" y1="-25.4" x2="-10.16" y2="12.7" width="0.1524" layer="94"/>
 <text x="-6.096" y="10.16" size="1.778" layer="95">TPS61030</text>
+</symbol>
+<symbol name="COIN">
+<pin name="V-" x="0" y="0" visible="off" length="point" rot="R90"/>
+<pin name="V+" x="0" y="2.54" visible="off" length="point" rot="R270"/>
+<wire x1="-0.846659375" y1="0.846659375" x2="0" y2="0.846659375" width="0.1524" layer="94"/>
+<wire x1="0" y1="0.846659375" x2="0.846659375" y2="0.846659375" width="0.1524" layer="94"/>
+<wire x1="-1.693315625" y1="1.693315625" x2="0" y2="1.693315625" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.693315625" x2="1.693315625" y2="1.693315625" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.693315625" width="0.1524" layer="94"/>
+<wire x1="0" y1="0.846659375" x2="0" y2="0" width="0.1524" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -705,6 +728,22 @@
 <connect gate="G$1" pin="VOUT1" pad="13"/>
 <connect gate="G$1" pin="VOUT2" pad="P$14"/>
 <connect gate="G$1" pin="VOUT3" pad="15"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="COIN">
+<gates>
+<gate name="G$1" symbol="COIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="COIN">
+<connects>
+<connect gate="G$1" pin="V+" pad="V+"/>
+<connect gate="G$1" pin="V-" pad="V-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -5008,6 +5047,7 @@ W = angled&lt;p&gt;
 <part name="R18" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
 <part name="R19" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
 <part name="R20" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="10k"/>
+<part name="U$5" library="Library" deviceset="COIN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5071,6 +5111,7 @@ W = angled&lt;p&gt;
 <instance part="R18" gate="G$1" x="109.22" y="-45.72" rot="R90"/>
 <instance part="R19" gate="G$1" x="116.84" y="-45.72" rot="R90"/>
 <instance part="R20" gate="G$1" x="124.46" y="-45.72" rot="R90"/>
+<instance part="U$5" gate="G$1" x="88.9" y="55.88"/>
 </instances>
 <busses>
 </busses>
@@ -5176,8 +5217,14 @@ W = angled&lt;p&gt;
 </segment>
 <segment>
 <pinref part="MCP7940M" gate="G$1" pin="P$4"/>
-<wire x1="58.42" y1="60.96" x2="48.26" y2="60.96" width="0.1524" layer="91"/>
-<label x="50.8" y="60.96" size="1.778" layer="95"/>
+<wire x1="58.42" y1="60.96" x2="55.88" y2="60.96" width="0.1524" layer="91"/>
+<label x="48.26" y="60.96" size="1.778" layer="95"/>
+<pinref part="U$5" gate="G$1" pin="V-"/>
+<wire x1="55.88" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="55.88" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="53.34" x2="55.88" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="53.34" x2="55.88" y2="60.96" width="0.1524" layer="91"/>
+<junction x="55.88" y="60.96"/>
 </segment>
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
@@ -5702,6 +5749,12 @@ W = angled&lt;p&gt;
 <wire x1="170.18" y1="-20.32" x2="180.34" y2="-20.32" width="0.1524" layer="91"/>
 <label x="172.72" y="-20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="T3" gate="G$1" pin="C"/>
+<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
+<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="TG3" class="0">
 <segment>
@@ -5710,10 +5763,10 @@ W = angled&lt;p&gt;
 <label x="172.72" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="T3" gate="G$1" pin="C"/>
-<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
-<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+<pinref part="T4" gate="G$1" pin="C"/>
+<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
+<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TG0_2" class="0">
@@ -5779,14 +5832,6 @@ W = angled&lt;p&gt;
 <wire x1="208.28" y1="-17.78" x2="208.28" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-15.24" x2="218.44" y2="-15.24" width="0.1524" layer="91"/>
 <label x="210.82" y="-15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TG4" class="0">
-<segment>
-<pinref part="T4" gate="G$1" pin="C"/>
-<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
-<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -5901,6 +5946,8 @@ W = angled&lt;p&gt;
 <pinref part="MCP7940M" gate="G$1" pin="P$8"/>
 <wire x1="78.74" y1="68.58" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
 <label x="81.28" y="68.58" size="1.778" layer="95"/>
+<pinref part="U$5" gate="G$1" pin="V+"/>
+<wire x1="88.9" y1="68.58" x2="88.9" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="B_SEL" class="0">
@@ -6011,6 +6058,22 @@ W = angled&lt;p&gt;
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,27.94,17.78,U2,AVCC,VCC,,,"/>
+<approved hash="113,1,202.573,-22.4688,T1,,,,,"/>
+<approved hash="113,1,235.593,-22.4688,T2,,,,,"/>
+<approved hash="113,1,268.613,-22.4688,T3,,,,,"/>
+<approved hash="113,1,301.633,-22.4688,T4,,,,,"/>
+<approved hash="113,1,119.422,7.33044,SV1,,,,,"/>
+<approved hash="113,1,167.598,20.6096,SV3,,,,,"/>
+<approved hash="113,1,160.062,50.5104,SV2,,,,,"/>
+<approved hash="113,1,167.598,-17.4904,SV5,,,,,"/>
+<approved hash="113,1,-68.6223,-4.79044,SV6,,,,,"/>
+<approved hash="113,1,-19.05,7.29827,COLIN2,,,,,"/>
+<approved hash="113,1,-19.05,-0.321731,AM,,,,,"/>
+<approved hash="113,1,-19.05,-7.94173,PM,,,,,"/>
+<approved hash="113,1,-19.05,14.9183,COLIN1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>

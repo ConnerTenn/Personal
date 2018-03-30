@@ -4831,16 +4831,18 @@ W = angled&lt;p&gt;
 <part name="R6" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
 <part name="R7" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
 <part name="R8" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="C6" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="12pF"/>
-<part name="C7" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="12pF"/>
-<part name="R9" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="R10" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="C8" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="12pF"/>
-<part name="R11" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="R12" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="R13" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="30"/>
-<part name="U$5" library="Library" deviceset="LLC_ASPI-6045S" device=""/>
+<part name="C6" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="100nF"/>
+<part name="C7" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="10uF"/>
+<part name="R9" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1.96M"/>
+<part name="R10" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="396k"/>
+<part name="C8" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="10pF"/>
+<part name="R11" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="182k"/>
+<part name="R12" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1.62M"/>
+<part name="R13" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R1206" package3d_urn="urn:adsk.eagle:package:13301/1" value="1.96M"/>
+<part name="LLC_ASPI-6045S" library="Library" deviceset="LLC_ASPI-6045S" device="" value="4.30uH"/>
 <part name="U$6" library="Library" deviceset="TPS61030" device=""/>
+<part name="C9" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="220uF"/>
+<part name="C10" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C1206" package3d_urn="urn:adsk.eagle:package:13279/1" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -4869,7 +4871,7 @@ W = angled&lt;p&gt;
 <instance part="C3" gate="G$1" x="38.1" y="53.34" rot="R270"/>
 <instance part="C4" gate="G$1" x="0" y="101.6"/>
 <instance part="C5" gate="G$1" x="22.86" y="101.6"/>
-<instance part="PAD1" gate="G$1" x="-83.82" y="93.98"/>
+<instance part="PAD1" gate="G$1" x="-154.94" y="106.68"/>
 <instance part="SV1" gate="1" x="124.46" y="10.16" rot="R180"/>
 <instance part="SV3" gate="1" x="162.56" y="20.32"/>
 <instance part="SV4" gate="1" x="10.16" y="7.62"/>
@@ -4888,8 +4890,10 @@ W = angled&lt;p&gt;
 <instance part="R11" gate="G$1" x="-40.64" y="38.1" rot="R90"/>
 <instance part="R12" gate="G$1" x="-40.64" y="50.8" rot="R90"/>
 <instance part="R13" gate="G$1" x="-60.96" y="50.8" rot="R90"/>
-<instance part="U$5" gate="G$1" x="-88.9" y="76.2"/>
+<instance part="LLC_ASPI-6045S" gate="G$1" x="-88.9" y="76.2"/>
 <instance part="U$6" gate="G$1" x="-83.82" y="55.88"/>
+<instance part="C9" gate="G$1" x="-22.86" y="45.72"/>
+<instance part="C10" gate="G$1" x="-33.02" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -5090,9 +5094,13 @@ W = angled&lt;p&gt;
 <wire x1="-119.38" y1="27.94" x2="-129.54" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="-129.54" y1="27.94" x2="-129.54" y2="45.72" width="0.1524" layer="91"/>
 <junction x="-119.38" y="27.94"/>
-<wire x1="-40.64" y1="27.94" x2="-27.94" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="27.94" x2="-22.86" y2="27.94" width="0.1524" layer="91"/>
 <junction x="-40.64" y="27.94"/>
-<label x="-35.56" y="27.94" size="1.778" layer="95"/>
+<label x="-17.78" y="27.94" size="1.778" layer="95"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="-22.86" y1="27.94" x2="-10.16" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="40.64" x2="-22.86" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-22.86" y="27.94"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -5157,9 +5165,13 @@ W = angled&lt;p&gt;
 <wire x1="-53.34" y1="55.88" x2="-60.96" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-53.34" y1="55.88" x2="-53.34" y2="53.34" width="0.1524" layer="91"/>
 <junction x="-53.34" y="55.88"/>
-<wire x1="-40.64" y1="55.88" x2="-27.94" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="55.88" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
 <junction x="-40.64" y="55.88"/>
-<label x="-35.56" y="55.88" size="1.778" layer="95"/>
+<label x="-17.78" y="55.88" size="1.778" layer="95"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="-22.86" y1="55.88" x2="-12.7" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="48.26" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-22.86" y="55.88"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -5629,7 +5641,7 @@ W = angled&lt;p&gt;
 <wire x1="-101.6" y1="60.96" x2="-101.6" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="VBAT"/>
 <wire x1="-101.6" y1="63.5" x2="-99.06" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="P$1"/>
+<pinref part="LLC_ASPI-6045S" gate="G$1" pin="P$1"/>
 <wire x1="-93.98" y1="76.2" x2="-101.6" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-101.6" y1="76.2" x2="-101.6" y2="63.5" width="0.1524" layer="91"/>
 <junction x="-101.6" y="63.5"/>
@@ -5655,7 +5667,7 @@ W = angled&lt;p&gt;
 <wire x1="-66.04" y1="60.96" x2="-66.04" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="SW1"/>
 <wire x1="-66.04" y1="63.5" x2="-68.58" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="P$2"/>
+<pinref part="LLC_ASPI-6045S" gate="G$1" pin="P$2"/>
 <wire x1="-66.04" y1="63.5" x2="-66.04" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="76.2" x2="-83.82" y2="76.2" width="0.1524" layer="91"/>
 <junction x="-66.04" y="63.5"/>
@@ -5690,6 +5702,24 @@ W = angled&lt;p&gt;
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="-106.68" y1="53.34" x2="-106.68" y2="48.26" width="0.1524" layer="91"/>
 <junction x="-106.68" y="53.34"/>
+</segment>
+</net>
+<net name="GND1" class="0">
+<segment>
+<wire x1="-48.26" y1="27.94" x2="-33.02" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="-33.02" y1="27.94" x2="-17.78" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="40.64" x2="-33.02" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-33.02" y="27.94"/>
+</segment>
+</net>
+<net name="VCC1" class="0">
+<segment>
+<wire x1="-48.26" y1="55.88" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="55.88" x2="-20.32" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="48.26" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-33.02" y="55.88"/>
 </segment>
 </net>
 </nets>
