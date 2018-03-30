@@ -5702,6 +5702,12 @@ W = angled&lt;p&gt;
 <wire x1="170.18" y1="-20.32" x2="180.34" y2="-20.32" width="0.1524" layer="91"/>
 <label x="172.72" y="-20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="T3" gate="G$1" pin="C"/>
+<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
+<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="TG3" class="0">
 <segment>
@@ -5710,10 +5716,10 @@ W = angled&lt;p&gt;
 <label x="172.72" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="T3" gate="G$1" pin="C"/>
-<wire x1="274.32" y1="-17.78" x2="274.32" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-15.24" x2="284.48" y2="-15.24" width="0.1524" layer="91"/>
-<label x="276.86" y="-15.24" size="1.778" layer="95"/>
+<pinref part="T4" gate="G$1" pin="C"/>
+<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
+<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TG0_2" class="0">
@@ -5779,14 +5785,6 @@ W = angled&lt;p&gt;
 <wire x1="208.28" y1="-17.78" x2="208.28" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-15.24" x2="218.44" y2="-15.24" width="0.1524" layer="91"/>
 <label x="210.82" y="-15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TG4" class="0">
-<segment>
-<pinref part="T4" gate="G$1" pin="C"/>
-<wire x1="307.34" y1="-17.78" x2="307.34" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
-<label x="309.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6011,6 +6009,22 @@ W = angled&lt;p&gt;
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,27.94,17.78,U2,AVCC,VCC,,,"/>
+<approved hash="113,1,202.573,-22.4688,T1,,,,,"/>
+<approved hash="113,1,235.593,-22.4688,T2,,,,,"/>
+<approved hash="113,1,268.613,-22.4688,T3,,,,,"/>
+<approved hash="113,1,301.633,-22.4688,T4,,,,,"/>
+<approved hash="113,1,119.422,7.33044,SV1,,,,,"/>
+<approved hash="113,1,167.598,20.6096,SV3,,,,,"/>
+<approved hash="113,1,160.062,50.5104,SV2,,,,,"/>
+<approved hash="113,1,167.598,-17.4904,SV5,,,,,"/>
+<approved hash="113,1,-68.6223,-4.79044,SV6,,,,,"/>
+<approved hash="113,1,-19.05,7.29827,COLIN2,,,,,"/>
+<approved hash="113,1,-19.05,-0.321731,AM,,,,,"/>
+<approved hash="113,1,-19.05,-7.94173,PM,,,,,"/>
+<approved hash="113,1,-19.05,14.9183,COLIN1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
