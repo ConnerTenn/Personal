@@ -20,112 +20,13 @@ typedef uint64_t u64;
 
 namespace INTC
 {
-	/*
-	//Use of extern instead of const so that value can be changed at runtime (by config file)
-	namespace OPE
-	{
-		extern char Not[2];
-		//char And[2] = "&";
-		//char Or[2] = "|";
-		//char Xor[2] = "^";
-		//std::string Dir = "/";
-		//std::string ForwardDir = ">";
-		//std::string Reverse = "<";
-		//char EscapeChar[2] = "\\";
-		//char OpenBracket[2] = "(";
-		//char CloseBracket[2] = ")";
-		//std::string OpenList = "{"; Not necessary 
-		//std::string CloseList = "}";
-		//std::string OpenQuote = "\"";
-		//std::string CloseQuote = "\"";
-		//std::string Delimeter = ",";
-	}*/
-	/*
-	namespace LOGIC
-	{
-		class Element
-		{
-
-		};
-
-		class And : public Element
-		{
-
-		};
-
-		class Or : public Element
-		{
-
-		};
-
-		class XOr : public Element
-		{
-
-		};
-
-		class Not : public Element
-		{
-
-		};
-
-		class Operator
-		{
-
-		};
-	}
-
-	class Directory
-	{
-		//std::vector<LOGIC::Operator> Dir;
-
-
-	};
-
-
-	class Node
-	{
-		std::string name;
-		//Links
-		//LinkToThis
-	};
-
-
-	class Network
-	{
-		//file File
-		char *VirtualFile;
-
-		
-
-		int Find(Directory dir, std::string node);
-		int Find(std::string path, std::string node);
-	};
-	*/
-
-
-
-	struct Node
-	{
-		std::string Name;
-		std::vector<Node *> Nodes;
-		
-		Node() {}
-		Node(std::string name) : Name(name) {}
-
-		std::vector<std::string> GetSubNodeNames();
-	};
+	struct Node;
 
 	//bool IsOperator(char character, int index);
 
+	/*
 	namespace EQN
 	{
-
-		/*enum EquationNodeType
-		{
-			Value,
-			//Operator,
-		};*/
-
 		struct EquationNode
 		{
 			//EquationNodeType Type;
@@ -193,21 +94,113 @@ namespace INTC
 			bool FullNodes();
 		};
 
-		struct Equation
+		class Equation
 		{
+		public:
 			std::vector<EquationNode *> Nodes;
 			std::vector<VAL *> Values;
 			EquationNode *RootNode;
 
 			~Equation();
+			void DeleteNodes();
 			
 			bool Evaluate(std::vector<std::string> stringList);
 
 			bool GenFromReversePolish(std::vector<std::string> reversePolish);
 		};
 	}
+	*/
+
+	class Network;
+
+	namespace EQN
+	{
+		struct EquationNode
+		{
+			//EquationNodeType Type;
+
+			virtual std::vector<Node *> Evaluate(Network *network);
+			//virtual bool AddNode(EquationNode *node);
+			//virtual bool FullNodes();
+		};
+
+		struct ROOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ADD : EquationNode
+		{
+			EquationNode *Parent = 0;
+			EquationNode *Child = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct SUB : EquationNode
+		{
+			EquationNode *Parent = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ALL : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ANY : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		class Equation
+		{
+		public:
+			std::vector<EquationNode *> Nodes;
+			//std::vector<VAL *> Values;
+			EquationNode *RootNode;
+
+			~Equation();
+			void DeleteNodes();
+
+			std::vector<Node *> Evaluate(Network *network);
+
+			//bool GenFromReversePolish(std::vector<std::string> reversePolish);
+		};
+	}
 
 	//extern std::vector<Node> Network;
+
+	struct Node
+	{
+		std::string Name;
+		std::vector<Node *> Nodes;
+		
+		//Access path
+		//std::vector<std::vector<std::string>> AccessPaths;
+
+		Node() {}
+		Node(std::string name) : Name(name) {}
+
+		std::vector<std::string> GetSubNodeNames();
+	};
 
 	class Network
 	{
@@ -217,8 +210,8 @@ namespace INTC
 		~Network();
 
 		void Add(std::string name, std::string sub = "");
-		std::vector<Node *> Find(EQN::Equation &equation);
-		std::vector<Node *> Find(std::vector<std::string> reversePolish);
+		//std::vector<Node *> Find(EQN::Equation &equation);
+		//std::vector<Node *> Find(std::vector<std::string> reversePolish);
 
 		
 	};

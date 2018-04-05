@@ -18,6 +18,7 @@
     <Text Include="Network.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="DesignAndFeatures.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interconnect.h">

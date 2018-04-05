@@ -2,7 +2,7 @@
 #include "Parser.h"
 #include "Interconnect.h"
 
-void main()
+int main()
 {
 	INTC::Network network;
 
@@ -44,7 +44,6 @@ void main()
 
 	//INTC::Network.push_back(INTC::Node("A"));
 
-
 	bool run = true;
 	while (run)
 	{
@@ -58,26 +57,29 @@ void main()
 
 		//std::cout << command << "\n#" << line << "#\n";
 
-		if (command == "end")
+		if (command == "end" || command == "exit")
 		{
 			run = false;
 		}
-		else if (command == "add")
+		/*else if (command == "add")
 		{
 			std::vector<std::string> words;
-			words.push_back("");  int i = 0; while (i < line.size()) { if (line[i] == ' ') { words.push_back(""); } else { words.back() += line[i]; } i++; }
+			//Seperate to spaces
+			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { words.push_back(""); space = false; } words.back() += line[i]; } i++; }
 
+			//If there are more than one words, the second word is added as a child of the first
 			network.Add(words[0], (words.size() > 1 ? words[1] : ""));
 		}
 		else if (command == "find")
 		{
 			std::vector<std::string> reversePolish;
-			//{ int i = 0;  while (i < line.size()) { int find = line.find(' ', i); if (find != std::string::npos) { reversePolish.push_back(line.substr(i, find)); i = find + 1; } else { i = line.size(); } } }
-			reversePolish.push_back("");  int i = 0; while (i < line.size()) { if (line[i] == ' ') { reversePolish.push_back(""); } else { reversePolish.back() += line[i]; } i++; }
+			//Seperate to spaces
+			bool space = true; int i = 0; while (i < line.size()) { if (line[i] == ' ') { space = true; } else { if (space) { reversePolish.push_back(""); space = false; } reversePolish.back() += line[i]; } i++; }
 
-
+			//Get list of vectors in Network
 			std::vector<INTC::Node *> nodes = network.Find(reversePolish);
 
+			//Display found Nodes
 			for (int i = 0; i < (int)nodes.size(); i++)
 			{
 				std::cout << nodes[i]->Name << "\n";
@@ -93,9 +95,8 @@ void main()
 					std::cout << "  " << network.NodeNetwork[i]->Nodes[j]->Name << "\n";
 				}
 			}
-		}
+		}*/
 	}
 
+	return 0;
 }
-
-

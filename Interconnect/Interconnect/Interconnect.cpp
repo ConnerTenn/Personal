@@ -1,38 +1,10 @@
 
 #include "Interconnect.h"
 
-
-//char INTC::OPE::Not[2] = "!";
-/*char And[2] = "&";
-char Or[2] = "|";
-char Xor[2] = "^";
-std::string Dir = "/";
-std::string ForwardDir = ">";
-std::string Reverse = "<";
-char EscapeChar[2] = "\\";
-char OpenBracket[2] = "(";
-char CloseBracket[2] = ")";
-std::string OpenList = "{"; Not necessary 
-std::string CloseList = "}";
-std::string OpenQuote = "\"";
-std::string CloseQuote = "\"";
-std::string Delimeter = ",";*/
-
-/*bool INTC::IsOperator(char character, int index)
-{
-	if (character == OPE::Not[index]) { return true; }
-	else if (character == OPE::And[index]) { return true; }
-	else if (character == OPE::Or[index]) { return true; }
-	else if (character == OPE::Xor[index]) { return true; }
-	else if (character == OPE::EscapeChar[index]) { return true; }
-	else if (character == OPE::OpenBracket[index]) { return true; }
-	else if (character == OPE::CloseBracket[index]) { return true; }
-	//return false;
+using namespace INTC;
 
 
-}*/
-
-std::vector<std::string> INTC::Node::GetSubNodeNames()
+std::vector<std::string> Node::GetSubNodeNames()
 {
 	std::vector<std::string> list;
 	for (int i = 0; i < Nodes.size(); i++)
@@ -42,193 +14,156 @@ std::vector<std::string> INTC::Node::GetSubNodeNames()
 	return list;
 }
 
-//std::vector<INTC::Node> INTC::Network = {};
+//std::vector<Node> Network = {};
 
 /*
-std::vector<INTC::Node *> INTC::FindNodes(std::string search)
-{
-	std::vector<std::string> names; 
-	std::vector<Node *> out;
-	
-	{
-		int index = -1; int wordState = 0;
-		for (int i = 0; i < (int)search.size(); i++)
-		{
-			if (isalpha(search[i]) || search[i] == '_')
-			{
-				if (wordState == 0)
-				{
-					wordState = 1; index++; names.push_back("");
-				}
-				names[index] += search[i];
-			}
-			else if (search[i] == ' ')
-			{
-				wordState = 0;
-			}
-			else
-			{
-				return {};
-			}
-		}
-	}
+//#######################
+//#  Equation Elements  #
+//#######################
 
-	for (int i = 0; i < (int)Network.size(); i++)
-	{
-		bool hasNames = true;
-
-		for (int s = 0; s < (int)names.size() && hasNames; s++)
-		{
-			bool has = false;
-			for (int n = 0; n <(int)Network[i].Nodes.size() && !has; n++)
-			{
-				if (Network[i].Nodes[n]->Name == names[s])
-				{
-					has = true;
-				}
-			}
-			if (!has) { hasNames = false; }//if none of the nodes has the name, exit for this node
-		}
-
-		if (hasNames) { out.push_back(&Network[i]); }
-	}
-
-	return out;
-}
-*/
-
-
-bool INTC::EQN::EquationNode::Evaluate()
+bool EQN::EquationNode::Evaluate()
 {
 	return false;
 }
 
-bool INTC::EQN::EquationNode::AddNode(EquationNode *node)
+bool EQN::EquationNode::AddNode(EquationNode *node)
 {
 	return false;
 }
 
-bool INTC::EQN::EquationNode::FullNodes()
+bool EQN::EquationNode::FullNodes()
 {
 	return true;
 }
 
 
-bool INTC::EQN::ROOT::Evaluate()
+bool EQN::ROOT::Evaluate()
 {
 	return Node1->Evaluate();
 }
 
-bool INTC::EQN::ROOT::AddNode(EquationNode *node)
+bool EQN::ROOT::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::ROOT::FullNodes()
+bool EQN::ROOT::FullNodes()
 {
 	return !!Node1;
 }
 
 
-bool INTC::EQN::NOT::Evaluate()
+bool EQN::NOT::Evaluate()
 {
 	return !Node1->Evaluate();
 };
 
-bool INTC::EQN::NOT::AddNode(EquationNode *node)
+bool EQN::NOT::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::NOT::FullNodes()
+bool EQN::NOT::FullNodes()
 {
 	return !!Node1;
 }
 
 
-bool INTC::EQN::AND::Evaluate()
+bool EQN::AND::Evaluate()
 {
 	return Node1->Evaluate() && Node2->Evaluate();
 }
 
-bool INTC::EQN::AND::AddNode(EquationNode *node)
+bool EQN::AND::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
 	if (!Node2) { Node2 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::AND::FullNodes()
+bool EQN::AND::FullNodes()
 {
 	return Node1 && Node2;
 }
 
 
-
-bool INTC::EQN::OR::Evaluate()
+bool EQN::OR::Evaluate()
 {
 	return Node1->Evaluate() || Node2->Evaluate();
 };
 
-bool INTC::EQN::OR::AddNode(EquationNode *node)
+bool EQN::OR::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
 	if (!Node2) { Node2 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::OR::FullNodes()
+bool EQN::OR::FullNodes()
 {
 	return Node1 && Node2;
 }
 
 
-bool INTC::EQN::XOR::Evaluate()
+bool EQN::XOR::Evaluate()
 {
 	return Node1->Evaluate() != Node2->Evaluate();
 };
 
-bool INTC::EQN::XOR::AddNode(EquationNode *node)
+bool EQN::XOR::AddNode(EquationNode *node)
 {
 	if (!Node1) { Node1 = node; return true; }
 	if (!Node2) { Node2 = node; return true; }
 	return false;
 }
 
-bool INTC::EQN::XOR::FullNodes()
+bool EQN::XOR::FullNodes()
 {
 	return Node1 && Node2;
 }
 
 
-bool INTC::EQN::VAL::Evaluate()
+bool EQN::VAL::Evaluate()
 {
 	return Status;
 }
 
-bool INTC::EQN::VAL::AddNode(EquationNode *node)
+bool EQN::VAL::AddNode(EquationNode *node)
 {
 	return false;
 }
 
-bool INTC::EQN::VAL::FullNodes()
+bool EQN::VAL::FullNodes()
 {
 	return true;
 }
 
+//##############
+//#  Equation  #
+//##############
 
-INTC::EQN::Equation::~Equation()
+EQN::Equation::~Equation()
+{
+	DeleteNodes();
+}
+
+void EQN::Equation::DeleteNodes()
 {
 	for (int i = 0; i < Nodes.size(); i++)
 	{
 		delete Nodes[i]; Nodes[i] = 0;
 	}
+	Nodes = {};
+	Values = {};
+	RootNode = 0;
 }
 
-bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
+
+bool EQN::Equation::Evaluate(std::vector<std::string> stringList)
 {
+	//Set each value element to true if the value element name matches a name in stringList
 	for (int i = 0; i < Values.size(); i++)
 	{
 		Values[i]->Status = false;
@@ -242,12 +177,15 @@ bool INTC::EQN::Equation::Evaluate(std::vector<std::string> stringList)
 	return RootNode->Evaluate();
 }
 
-bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reversePolish)
+bool EQN::Equation::GenFromReversePolish(std::vector<std::string> reversePolish)
 {
+	DeleteNodes();
+
 	std::vector<EquationNode *> stack;
 	int rec = 0;
 
 	{
+		//Init with root node to ensure similar entry point
 		ROOT *root = new ROOT();
 		stack.push_back(root);
 		Nodes.push_back(root);
@@ -275,7 +213,7 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 		{
 			node = new XOR();
 		}
-		else //VAL
+		else //If not a known operator, add VAL
 		{
 			node = new VAL();
 			((VAL *)node)->Name = reversePolish[i];
@@ -284,18 +222,103 @@ bool INTC::EQN::Equation::GenFromReversePolish(std::vector<std::string> reverseP
 
 		Nodes.push_back(node);
 
-
-		stack.push_back(node); rec++;
-		stack[rec - 1]->AddNode(node);
-		while (rec >= 0 && stack[rec]->FullNodes()) { 
-			stack.pop_back(); rec--; }
+		if (rec < 0) { return false; } //Extra nodes were added than expected
+		stack.push_back(node); rec++; //add node to stack (rec is length - 1. Initially is 0 when root node exists)
+		stack[rec - 1]->AddNode(node); //adds current node to previous
+		while (rec >= 0 && stack[rec]->FullNodes()) { stack.pop_back(); rec--; } //Remove items from stack if their nodes are full
 	}
 
+	if (rec != -1) { return false; }
 	return true;
+}*/
+
+
+//#########################
+//#  Equation 2 Elements  #
+//#########################
+
+std::vector<Node *> EQN::EquationNode::Evaluate(Network *network)
+{
+	return {};
 }
 
 
-INTC::Network::~Network()
+std::vector<Node *> EQN::ROOT::Evaluate(Network *network)
+{
+	return Node1->Evaluate(network);
+}
+
+std::vector<Node *> EQN::ADD::Evaluate(Network *network)
+{
+	/*std::vector<Node *> parentNodes = Parent->Evaluate(network);
+	std::vector<Node *> childNodes = Child->Evaluate(network);
+
+	//go through each parent node
+	for (int i = 0; i < parentNodes.size(); i++)
+	{
+		//go through each child node
+		for (int j = 0; j < childNodes.size(); j++)
+		{
+			//add each child node to each parent node
+			network->Add(parentNodes[i]->Name, childNodes[j]->Name);
+		}
+	}
+
+	return childNodes;*/
+	return {};
+}
+
+std::vector<Node *> EQN::SUB::Evaluate(Network *network)
+{
+	/*std::vector<Node *> subNodes = Parent->Evaluate(network);
+
+	//go through each parent node
+	for (int i = 0; i < parentNodes.size(); i++)
+	{
+		//go through each child node
+		for (int j = 0; j < childNodes.size(); j++)
+		{
+			//add each child node to each parent node
+			network->Add(parentNodes[i]->Name, childNodes[j]->Name);
+		}
+	}
+
+	return childNodes;*/
+	return {};
+}
+
+//################
+//#  Equation 2  #
+//################
+
+EQN::Equation::~Equation()
+{
+	DeleteNodes();
+}
+
+void EQN::Equation::DeleteNodes()
+{
+	for (int i = 0; i < Nodes.size(); i++)
+	{
+		delete Nodes[i]; Nodes[i] = 0;
+	}
+	Nodes = {};
+	//Values = {};
+	RootNode = 0;
+}
+
+
+std::vector<Node *> EQN::Equation::Evaluate(Network *network)
+{
+	return RootNode->Evaluate(network);
+}
+
+
+//#############
+//#  Network  #
+//#############
+
+Network::~Network()
 {
 	for (int i = 0; i < NodeNetwork.size(); i++)
 	{
@@ -303,25 +326,31 @@ INTC::Network::~Network()
 	}
 }
 
-void INTC::Network::Add(std::string name, std::string sub)
+void Network::Add(std::string name, std::string sub)
 {
 	Node *foundName = 0, *foundSub = 0;
+	//search for if elements are already in the network
 	for (int i = 0; i < NodeNetwork.size(); i++)
 	{
 		if (NodeNetwork[i]->Name == name) { foundName = NodeNetwork[i]; }
 		if (NodeNetwork[i]->Name == sub) { foundSub = NodeNetwork[i]; }
 	}
-	if (!foundName) { NodeNetwork.push_back(new INTC::Node(name)); foundName = NodeNetwork.back(); }
-	if (foundName && !foundSub && sub.length()) { NodeNetwork.push_back(new INTC::Node(sub)); foundSub = NodeNetwork.back(); }
-	if (foundName && foundSub) { foundName->Nodes.push_back(foundSub); }
+	//Add elements to to the network if they didnt already exist (allocates new memory)
+	if (!foundName) { NodeNetwork.push_back(new Node(name)); foundName = NodeNetwork.back(); }
+	if (!foundSub && sub.length()) { NodeNetwork.push_back(new Node(sub)); foundSub = NodeNetwork.back(); }
+	//add sub element to parent
+	if (foundSub) { foundName->Nodes.push_back(foundSub); }
 }
 
-std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
+/*
+std::vector<Node *> Network::Find(EQN::Equation &equation)
 {
-	std::vector<Node *> results; 
+	std::vector<Node *> results;
 
+	//check every (root) node
 	for (int i = 0; i < (int)NodeNetwork.size(); i++)
 	{
+		//finds which nodes have sub nodes that match the equation conditions
 		if (equation.Evaluate(NodeNetwork[i]->GetSubNodeNames()))
 		{
 			results.push_back(NodeNetwork[i]);
@@ -331,12 +360,16 @@ std::vector<INTC::Node *> INTC::Network::Find(INTC::EQN::Equation &equation)
 	return results;
 }
 
-std::vector<INTC::Node *> INTC::Network::Find(std::vector<std::string> reversePolish)
+//Wrapper for Previous Find function. Allows parameter to be reversePolish
+std::vector<Node *> Network::Find(std::vector<std::string> reversePolish)
 {
 	EQN::Equation equation;
-	equation.GenFromReversePolish(reversePolish);
-	
+	if (!equation.GenFromReversePolish(reversePolish))
+	{
+		std::cout << "ERROR parsing reversePolish\n";
+		return {};
+	}
+
 	return Find(equation);
-}
-
-
+	//Equation gets destroyed and all memory released
+}*/
