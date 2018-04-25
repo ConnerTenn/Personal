@@ -21,9 +21,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  00000050  00000000  00000000  00000e5c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000001bb  00000000  00000000  00000eac  2**0
+  9 .debug_str    000001b0  00000000  00000000  00000eac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000007c  00000000  00000000  00001067  2**0
+ 10 .debug_loc    0000007c  00000000  00000000  0000105c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -654,14 +654,14 @@ inline void SetSlowTimer()
  384:	43 e0       	ldi	r20, 0x03	; 3
  386:	23 e0       	ldi	r18, 0x03	; 3
  388:	61 de       	rcall	.-830    	; 0x4c <SetPins>
-			if (Counter - CorrectPasswordCntStart >= 4700 && MotorState == 1)
+			if (Counter - CorrectPasswordCntStart >= 700 && MotorState == 1)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
 				ReverseMotor();
 				MotorState = 2;
  38a:	02 e0       	ldi	r16, 0x02	; 2
-			if (Counter - CorrectPasswordCntStart >= 4200 && MotorState == 0)
+			if (Counter - CorrectPasswordCntStart >= 500 && MotorState == 0)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
@@ -685,7 +685,7 @@ inline void SetSlowTimer()
  3a6:	09 f4       	brne	.+2      	; 0x3aa <main+0x74>
  3a8:	89 c0       	rjmp	.+274    	; 0x4bc <main+0x186>
 		{
-			if (Counter - CorrectPasswordCntStart >= 4200 && MotorState == 0)
+			if (Counter - CorrectPasswordCntStart >= 500 && MotorState == 0)
  3aa:	80 91 6e 00 	lds	r24, 0x006E
  3ae:	90 91 6f 00 	lds	r25, 0x006F
  3b2:	a0 91 70 00 	lds	r26, 0x0070
@@ -694,8 +694,8 @@ inline void SetSlowTimer()
  3bc:	93 0b       	sbc	r25, r19
  3be:	a4 0b       	sbc	r26, r20
  3c0:	b5 0b       	sbc	r27, r21
- 3c2:	88 56       	subi	r24, 0x68	; 104
- 3c4:	90 41       	sbci	r25, 0x10	; 16
+ 3c2:	84 5f       	subi	r24, 0xF4	; 244
+ 3c4:	91 40       	sbci	r25, 0x01	; 1
  3c6:	a0 40       	sbci	r26, 0x00	; 0
  3c8:	b0 40       	sbci	r27, 0x00	; 0
  3ca:	58 f0       	brcs	.+22     	; 0x3e2 <main+0xac>
@@ -713,7 +713,7 @@ inline void DisableMotor()
  3d8:	48 e1       	ldi	r20, 0x18	; 24
  3da:	20 e0       	ldi	r18, 0x00	; 0
  3dc:	37 de       	rcall	.-914    	; 0x4c <SetPins>
-			if (Counter - CorrectPasswordCntStart >= 4200 && MotorState == 0)
+			if (Counter - CorrectPasswordCntStart >= 500 && MotorState == 0)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
@@ -721,7 +721,7 @@ inline void DisableMotor()
 				MotorState = 1;
  3de:	10 93 7f 00 	sts	0x007F, r17
 			}
-			if (Counter - CorrectPasswordCntStart >= 4700 && MotorState == 1)
+			if (Counter - CorrectPasswordCntStart >= 700 && MotorState == 1)
  3e2:	80 91 6e 00 	lds	r24, 0x006E
  3e6:	90 91 6f 00 	lds	r25, 0x006F
  3ea:	a0 91 70 00 	lds	r26, 0x0070
@@ -734,8 +734,8 @@ inline void DisableMotor()
  404:	93 0b       	sbc	r25, r19
  406:	a4 0b       	sbc	r26, r20
  408:	b5 0b       	sbc	r27, r21
- 40a:	8c 55       	subi	r24, 0x5C	; 92
- 40c:	92 41       	sbci	r25, 0x12	; 18
+ 40a:	8c 5b       	subi	r24, 0xBC	; 188
+ 40c:	92 40       	sbci	r25, 0x02	; 2
  40e:	a0 40       	sbci	r26, 0x00	; 0
  410:	b0 40       	sbci	r27, 0x00	; 0
  412:	58 f0       	brcs	.+22     	; 0x42a <main+0xf4>
@@ -753,7 +753,7 @@ inline void ReverseMotor()
  420:	48 e1       	ldi	r20, 0x18	; 24
  422:	20 e1       	ldi	r18, 0x10	; 16
  424:	13 de       	rcall	.-986    	; 0x4c <SetPins>
-			if (Counter - CorrectPasswordCntStart >= 4700 && MotorState == 1)
+			if (Counter - CorrectPasswordCntStart >= 700 && MotorState == 1)
 			{
 				//CorrectPasswordCntStart = 0;
 				//SetPins('P', 'B', 0x08, 0x00);
@@ -761,7 +761,7 @@ inline void ReverseMotor()
 				MotorState = 2;
  426:	00 93 7f 00 	sts	0x007F, r16
 			}
-			if (Counter - CorrectPasswordCntStart >= 6700 && MotorState == 2)
+			if (Counter - CorrectPasswordCntStart >= 1200 && MotorState == 2)
  42a:	80 91 6e 00 	lds	r24, 0x006E
  42e:	90 91 6f 00 	lds	r25, 0x006F
  432:	a0 91 70 00 	lds	r26, 0x0070
@@ -774,8 +774,8 @@ inline void ReverseMotor()
  44c:	93 0b       	sbc	r25, r19
  44e:	a4 0b       	sbc	r26, r20
  450:	b5 0b       	sbc	r27, r21
- 452:	8c 52       	subi	r24, 0x2C	; 44
- 454:	9a 41       	sbci	r25, 0x1A	; 26
+ 452:	80 5b       	subi	r24, 0xB0	; 176
+ 454:	94 40       	sbci	r25, 0x04	; 4
  456:	a0 40       	sbci	r26, 0x00	; 0
  458:	b0 40       	sbci	r27, 0x00	; 0
  45a:	98 f0       	brcs	.+38     	; 0x482 <main+0x14c>
@@ -800,7 +800,7 @@ inline void DisableMotor()
  47a:	20 e0       	ldi	r18, 0x00	; 0
  47c:	e7 dd       	rcall	.-1074   	; 0x4c <SetPins>
 			}
-			if (Counter - CorrectPasswordCntStart >= 6700 && MotorState == 2)
+			if (Counter - CorrectPasswordCntStart >= 1200 && MotorState == 2)
 			{
 				CorrectPasswordCntStart = 0;
 				DisableMotor();
