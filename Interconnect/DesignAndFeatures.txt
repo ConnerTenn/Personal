@@ -30,7 +30,11 @@ Syntax
 		search for all emements that have sub B, then add them as sub to A
 
 	Example #>B 
-		Add b as sub to all
+		//Add b as sub to all
+		Add B as sub to all nodes combined
+	
+	Example *>B
+		Add B as sub to all nodes individually
 
 	Example (#.)>B
 		Get sub nodes of all, add B as a sub to them.
@@ -49,3 +53,14 @@ Syntax
 	
 	Example ..
 		Search for nodes that have sub nodes of sub nodes
+
+
+File Structure
+	List For Every Tab
+	
+	[Node]
+		/[Access]
+		>[Links]
+	
+	
+	
