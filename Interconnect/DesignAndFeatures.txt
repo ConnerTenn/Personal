@@ -63,4 +63,31 @@ File Structure
 		>[Links]
 	
 	
+
+
+Example
+	Network
+		AAA
+			>BBB
+			>CCC
+		BBB
+			/AAA
+			>CCC
+		CCC
+			/AAA
+			/BBB
+		DDD
 	
+	Input
+		How??????
+		
+		/AAA/CCC
+		Get node AAA sub CCC
+		
+		AAA/CCC
+		
+		
+		*/CCC
+		Ndes with sub node CCC
+		
+		

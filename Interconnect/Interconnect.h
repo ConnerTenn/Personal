@@ -20,21 +20,100 @@ typedef uint64_t u64;
 
 namespace INTC
 {
-	struct Node;
-
-	struct Node
+	/*namespace EQN
 	{
-		std::string Name;
-		std::vector<Node *> Nodes;
+		struct EquationNode
+		{
+			//EquationNodeType Type;
+
+			virtual std::vector<Node *> Evaluate(Network *network);
+			//virtual bool AddNode(EquationNode *node);
+			//virtual bool FullNodes();
+		};
+
+		struct ROOT : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ADD : EquationNode
+		{
+			EquationNode *Parent = 0;
+			EquationNode *Child = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct SUB : EquationNode
+		{
+			EquationNode *Parent = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ALL : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		struct ANY : EquationNode
+		{
+			EquationNode *Node1 = 0;
+
+			std::vector<Node *> Evaluate(Network *network);
+			//bool AddNode(EquationNode *node);
+			//bool FullNodes();
+		};
+
+		class Equation
+		{
+		public:
+			std::vector<EquationNode *> Nodes;
+			//std::vector<VAL *> Values;
+			EquationNode *RootNode;
+
+			~Equation();
+			void DeleteNodes();
+
+			std::vector<Node *> Evaluate(Network *network);
+
+			//bool GenFromReversePolish(std::vector<std::string> reversePolish);
+		};
+	}*/
+	namespace ACT
+	{
+		struct Action
+		{
+			virtual void Evaluate();
+		};
 		
-		//Access path
-		//std::vector<std::vector<std::string>> AccessPaths;
-
-		Node() {}
-		Node(std::string name) : Name(name) {}
-
-		std::vector<std::string> GetSubNodeNames();
-	};
+		struct DirSub
+		{
+			void Evaluate();
+		};
+		
+		struct Add
+		{
+			
+		};
+		
+		struct Actions
+		{
+			std::vector<Actions> ActionList;
+		};
+	}
 }
 
 
